@@ -34,6 +34,7 @@
 
 
 
+\begin{comment}
 \section{Warm up:}
 
 	\begin{freeResponse}
@@ -43,6 +44,7 @@
 \begin{instructorNotes}
 
 \end{instructorNotes}
+\end{comment}
 
 
 
@@ -56,9 +58,40 @@
 
 %problem 1
 \begin{problem}
-
+Evaluate
+	\[
+	\int \frac{5x^3 - 6x + 2}{x-5} \d x.
+	\]
 	\begin{freeResponse}
+	When integrating a rational function (i.e., a fraction of polynomials) where the degree of the numerator is greater than or equal to the degree of the denominator, we need to use long division to simplify the expression.  
 	
+	\begin{image}
+	\includegraphics[trim= 170 220 250 250, scale=0.7]{Figure7-1-1.pdf}
+	\end{image}
+	
+	So
+		\[
+		\frac{5x^3 - 6x + 2}{x-5} = 5x^2 + 25x + 119 + \frac{597}{x-5}
+		\]
+	and therefore
+		\begin{align*}
+		\int \frac{5x^3 - 6x + 2}{x-5} \d x &= \int \left( 5x^2 + 25x + 119 + \frac{597}{x-5} \right) \d x  \\
+		&= \frac{5}{3} x^3 + \frac{25}{2} x^2 + 119x + 597 \int \frac{1}{x-5} \d x.
+		\end{align*}
+	To evaluate
+		\[
+		\int \frac{1}{x-5} \d x
+		\]
+	we technically should perform a substitution.  
+	But since $\ddx (x-5) = 1$, we can treat $x-5$ as a variable during integration.  
+	Thus
+		\[
+		\int \frac{1}{x-5} \d x = \ln |x-5|
+		\]
+	and therefore
+		\[
+		\int \frac{5x^3 - 6x + 2}{x-5} \d x = \frac{5}{3} x^3 + \frac{25}{2} x^2 + 119x + 597 \ln |x-5| + C.
+		\]
 	\end{freeResponse}
 	
 \end{problem}
@@ -75,7 +108,10 @@
 
 %problem 2
 \begin{problem}
-
+Evaluate
+	\[
+	\int \frac{5}{3^{2x} + 3^{-2x}} \d x.
+	\]
 	\begin{freeResponse}
 	
 	\end{freeResponse}
@@ -94,10 +130,60 @@
 
 %problem 3
 \begin{problem}
-
+Evaluate the following integrals
+	\begin{enumerate}
+	
+	\item  $\int \frac{\cos x}{1 + \sin x} \d x$
 	\begin{freeResponse}
 	
 	\end{freeResponse}
+	
+	
+	
+	\item  $ \int \frac{1}{\sin x - 1} \d x$
+	\begin{freeResponse}
+	
+	\end{freeResponse}
+	
+	\end{enumerate}
+
+\end{problem}
+
+\begin{instructorNotes}
+
+\end{instructorNotes}
+
+
+
+
+
+
+
+%problem 4
+\begin{problem}
+Evaluate the following integrals
+	\begin{enumerate}
+	
+	\item  $ \frac{13}{\sqrt{12x - x^2 - 20}} \d x$
+	\begin{freeResponse}
+	
+	\end{freeResponse}
+	
+	
+	
+	\item  $\int \frac{13x^3}{\sqrt{12x^6 - x^8 - 20x^4}} \d x$
+	\begin{freeResponse}
+	
+	\end{freeResponse}
+	
+	
+	
+	\item  $\int \frac{13e^{4x}}{\sqrt{ 12e^{6x} - e^{8x} - 20e^{4x} }} \d x$
+	\begin{freeResponse}
+	
+	\end{freeResponse}
+	
+	\end{enumerate}
 
 \end{problem}
 
