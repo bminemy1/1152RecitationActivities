@@ -97,7 +97,8 @@ Evaluate
 \end{problem}
 
 \begin{instructorNotes}
-
+Each of problems \#1 through \#4 presents a different aspect that is covered in Section 7.1.  
+This problem (\# 1) requires long division.  
 \end{instructorNotes}
 
 
@@ -113,13 +114,34 @@ Evaluate
 	\int \frac{5}{3^{2x} + 3^{-2x}} \d x.
 	\]
 	\begin{freeResponse}
-	
+		\begin{align*}
+		\int \frac{5}{3^{2x} + 3^{-2x}} \d x &= \int \frac{5}{3^{2x} + 3^{-2x}} \cdot \frac{3^{2x}}{3^{2x}} \d x  \\
+		&= \int \frac{5 \cdot 3^{2x}}{\left( 3^{2x} \right)^2 + 1} \d x .
+		\end{align*}
+	Now, let 
+		\[
+		u = 3^{2x}.
+		\]  
+	Then 
+		\[
+		\d u = 2 \cdot 3^{2x} \cdot \ln (3) \d x
+		\]
+	and so
+		\[
+		\d x = \frac{1}{2 \cdot 3^{2x} \cdot \ln (3)} \d u.
+		\]
+	Thus
+		\begin{align*}
+		\int \frac{5}{3^{2x} + 3^{-2x}} \d x &= \int \frac{5}{u^2 + 1} \cdot \frac{1}{2\ln(3)} \d u  \\
+		&= \frac{5}{2\ln(3)} \arctan(u) + C  \\
+		&= \frac{5}{2\ln(3)} \arctan \left( 3^{2x} \right) + C.
+		\end{align*}
 	\end{freeResponse}
 		
 \end{problem}
 
 \begin{instructorNotes}
-
+Students are likely to have forgotten $\ddx \left( C^x \right)$ for $C \neq e$.
 \end{instructorNotes}
 
 
@@ -135,14 +157,37 @@ Evaluate the following integrals
 	
 	\item  $\int \frac{\cos x}{1 + \sin x} \d x$
 	\begin{freeResponse}
-	
+	Let $u=1+\sin x$.  Then $\d u = \cos x \d x$, and so
+		\begin{align*}
+		\int \frac{\cos x}{1 + \sin x} \d x &= \int \frac{1}{u} \d u  \\
+		&= \ln|u| + C  \\
+		&= \ln (1 + \sin(x) ) + C.
+		\end{align*}
 	\end{freeResponse}
 	
 	
 	
 	\item  $ \int \frac{1}{\sin x - 1} \d x$
 	\begin{freeResponse}
-	
+		\begin{align*}
+		\int \frac{1}{\sin x - 1} \d x &= \int \frac{1}{\sin x - 1} \cdot \frac{\sin x + 1}{\sin x + 1} \d x  \qquad  {\color{red}\text{since } \frac{\sin x + 1}{\sin x + 1} = 1}\\
+		&= \int \frac{\sin x + 1}{\sin^2 x - 1} \d x  \\
+		&= \int \frac{\sin x + 1}{-\cos^2 x} \d x		\qquad	{\color{red}\text{since } \cos^2 x + \sin^2 x = 1}  \\
+		&= \int \frac{-\sin x}{\cos^2 x} \d x - \int \frac{1}{\cos^2 x} \d x.
+		\end{align*}
+	Now we split up and compute these two integrals separately.
+		\begin{align*}
+		\int \frac{-\sin x}{\cos x} \d x &= \int \frac{1}{u^2} \d u	\qquad	{\color{red} \text{where } u = \cos x, \d u = - \sin x \d x}  \\
+		&= - \frac{1}{u} + C = \frac{-1}{\cos x} + C.
+		\end{align*}
+	Also,
+		\[
+		\int \frac{1}{\cos^2 x} \d x = \int \sec^2 x \d x = \tan x + C.
+		\]
+	So, we finally have that
+		\[
+		\int \frac{1}{\sin x - 1} \d x = \frac{-1}{\cos x} - \tan x + C.
+		\]
 	\end{freeResponse}
 	
 	\end{enumerate}
@@ -150,7 +195,7 @@ Evaluate the following integrals
 \end{problem}
 
 \begin{instructorNotes}
-
+The two integrals in this problem look similar, but they require very different strategies in order to rewrite them as ``basic" integrals.
 \end{instructorNotes}
 
 
@@ -164,23 +209,62 @@ Evaluate the following integrals
 Evaluate the following integrals
 	\begin{enumerate}
 	
-	\item  $ \frac{13}{\sqrt{12x - x^2 - 20}} \d x$
+	\item  $ \int \frac{13}{\sqrt{12x - x^2 - 20}} \d x$
 	\begin{freeResponse}
+	First notice that by completing the square, we have that
+		\begin{align*}
+		12x - x^2 - 20 &= -(x^2 - 12x) - 20  \\
+		&= -(x^2 - 12x + {\color{red}36}) - 20 + {\color{red}36}  \\
+		&= 16 - (x-6)^2  \\
+		&= 16 \left( 1 - \frac{(x-6)^2}{16} \right)  \\
+		&= 16 \left( 1 - \left( \frac{x-6}{4} \right)^2 \right).
+		\end{align*}
+	Then
+		\begin{align*}
+		\int \frac{13}{\sqrt{12x - x^2 - 20}} \d x &= \int \frac{13}{\sqrt{16 \left( 1 - \left( \frac{x-6}{4} \right)^2 \right)}} \d x  \\
+		&= \frac{13}{4} \int \frac{1}{\sqrt{1 - \left( \frac{x-6}{4} \right)^2}} \d x.
+		\end{align*}
 	
+	Let
+		\[
+		u = \frac{x-6}{4} = \frac{1}{4} (x-6).
+		\]
+	Then
+		\[
+		\d u = \frac{1}{4} \d x		\qquad	\Longrightarrow		\qquad	4 \d u = \d x.
+		\]
+	Finally, we have that
+		\begin{align*}
+		\int \frac{13}{\sqrt{12x - x^2 - 20}} \d x &= 13 \int \frac{1}{\sqrt{1-u^2}} \d u  \\
+		&= 13 \arcsin(u) + C  \\
+		&= 13 \arcsin \left( \frac{x-6}{4} \right) + C.
+		\end{align*}
 	\end{freeResponse}
 	
 	
 	
 	\item  $\int \frac{13x^3}{\sqrt{12x^6 - x^8 - 20x^4}} \d x$
 	\begin{freeResponse}
-	
+		\begin{align*}
+		\int \frac{13x^3}{\sqrt{12x^6 - x^8 - 20x^4}} \d x &= \int \frac{13x^3}{\sqrt{x^4} \cdot \sqrt{12x^2-x^4-20}} \d x  \\
+		&= \int \frac{13x}{\sqrt{12x^2-x^4-20}} \d x  \\
+		&= \frac{1}{2} \int \frac{13}{\sqrt{12u-u^2-20}} \d u	\qquad	{\color{red} \text{Let }u=x^2, \d u = 2 x \d x }  \\
+		&= \frac{1}{2} \left( 13 \arcsin \left( \frac{u-6}{4} \right) \right) + C	\qquad	{\color{red}\text{from part (a)}}  \\
+		&= \frac{13}{2} \arcsin \left( \frac{x^2 - 6}{4} \right) + C.
+		\end{align*}
 	\end{freeResponse}
 	
 	
 	
 	\item  $\int \frac{13e^{4x}}{\sqrt{ 12e^{6x} - e^{8x} - 20e^{4x} }} \d x$
 	\begin{freeResponse}
-	
+		\begin{align*}
+		\int \frac{13e^{4x}}{\sqrt{ 12e^{6x} - e^{8x} - 20e^{4x} }} \d x &= \int \frac{13e^{4x}}{\sqrt{e^{4x}} \cdot \sqrt{12e^{2x} - e^{4x} - 20}} \d x  \\
+		&= \int \frac{13e^{2x}}{\sqrt{12e^{2x} - e^{4x} - 20}} \d x  \\
+		&= \frac{1}{2} \int \frac{13}{\sqrt{12u - u^2 - 20}} \d u		\qquad	{\color{red} \text{where } u=e^{2x}, \d u = 2e^{2x} \d x}  \\
+		&= \frac{1}{2} \left( 13 \arcsin \left( \frac{u-6}{4} \right) \right) + C	\qquad 	{\color{red}\text{from part (a)}}  \\
+		&= \frac{13}{2} \arcsin \left( \frac{e^{2x}-6}{4} \right) + C.
+		\end{align*}
 	\end{freeResponse}
 	
 	\end{enumerate}
@@ -188,7 +272,10 @@ Evaluate the following integrals
 \end{problem}
 
 \begin{instructorNotes}
-
+Part (a) of this problem involves completing the square.  
+Parts (b) and (c) both require you to factor out a common factor, as well as substitute, to get the same integral as in part (a).  
+You may want to do part (a) as a whole class, and then split parts (b) and (c) between the groups.  
+Then let them present the substitution which returns part (a).  
 \end{instructorNotes}
 
 
