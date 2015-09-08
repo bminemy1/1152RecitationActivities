@@ -63,7 +63,37 @@ Evaluate the following integrals
 	
 	\item  $\int_1^3 x^2 5^x \d x$
 	\begin{freeResponse}
-	
+	We proceed via integration by parts.  Let 
+		\[
+		u = x^2, \qquad \d v = 5^x \d x
+		\]
+	so that
+		\[
+		\d u = 2x \d x, \qquad v = \frac{5^x}{\ln 5} .
+		\]
+	Recall the formula for integration by parts is
+		\[
+		\int_a^b u \d v = \eval{uv}_a^b - \int_a^b v \d u.
+		\]
+	So we substitute
+		\begin{align*}
+		\int_1^3 x^2 5^x \d x &= \eval{\frac{x^2 5^x}{\ln(5)}}_1^3 - \int_1^3 2x \frac{5^x}{\ln(5)} \d x  \\
+		&= \frac{1}{\ln(5)} \left( 9 \cdot 5^3 - 5 \right) - \frac{2}{\ln(5)} \int_1^3 x 5^x \d x.
+		\end{align*}
+	For the remaining integral we again use integration by parts:
+		\[
+		u = x, \qquad \d v = 5^x  
+		\]
+		\[
+		\d u = \d x, \qquad v = \frac{5^x}{\ln(5)}.
+		\]
+	Thus,
+		\begin{align*}
+		&\frac{1}{\ln(5)} \left( 9 \cdot 5^3 - 5 \right) - \frac{2}{\ln(5)} \int_1^3 x 5^x \d x \\
+		&= \frac{5}{\ln(5)} (225 - 1) - \frac{2}{\ln(5)} \left( \eval{\frac{x5^x}{\ln(5)}}_1^3 - \int_1^3 \frac{5^x}{\ln(5)} \d x \right)  \\
+		&= \frac{1120}{\ln(5)} - \frac{2}{\ln^2(5)} \left( (3 \cdot 5^3 - 5) - \eval{\frac{5^x}{\ln(5)}}_1^3 \right)  \\
+		&= \frac{1}{\ln(5)} \left( 1120 - \frac{740}{\ln(5)} + \frac{248}{\ln^2(5)} \right).
+		\end{align*}
 	\end{freeResponse}
 	
 	
@@ -85,7 +115,9 @@ Evaluate the following integrals
 \end{problem}
 
 \begin{instructorNotes}
-
+All three parts involve standard strategies learned in the online lessons.  
+For each, split the problems between the groups.  
+Then discuss each problem as a class, getting input from the group(s) that worked on that problem.
 \end{instructorNotes}
 
 
@@ -123,7 +155,9 @@ Evaluate the following integrals
 \end{problem}
 
 \begin{instructorNotes}
-
+For this problem, you might just lead a whole class discussion - hopefully soliciting ideas from the students (on their own or with hints).  
+You might want to note that some of the problems may be approached in different ways.  
+For example, one could begin part (a) with either the substitution $u=x^3$ or by parts with $u=x^3, \d v = x^2 \cos(x^3)$.
 \end{instructorNotes}
 
 
