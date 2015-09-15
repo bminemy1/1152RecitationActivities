@@ -160,7 +160,42 @@ Evaluate:
 	\int x^{-2} \arctan(x) \d x
 	\]
 	\begin{freeResponse}
-	
+	We begin by using integration by parts, with
+		\[
+		u = \arctan(x) 	\qquad	\d v = x^{-2} \d x
+		\]
+		\[
+		\d u = \frac{1}{1+x^2} \d x 	\qquad	v = -x^{-1}.
+		\]
+	Then
+		\begin{align*}
+		\int x^{-2} \arctan(x) \d x
+		&= -x^{-1} \arctan(x) - \int \frac{-x^{-1}}{1+x^2} \d x  \\
+		&= -x^{-1} \arctan(x) + \int \frac{1}{x(1+x^2)} \d x.
+		\end{align*}
+	We know compute a partial fraction decomposition in order to solve this new integral
+		\begin{align*}
+		&\frac{1}{x(1+x^2)} = \frac{A}{x} + \frac{Bx+C}{1+x^2}  \\
+		\Longrightarrow 	\qquad	&1 = A(1+x^2) + (Bx+C)x  \\
+		\Longrightarrow 	\qquad	&1 = (A+B)x^2 + Cx + A.
+		\end{align*}
+	By comparing like terms, we see that
+		\begin{align*}
+		&A = 1  \\
+		&C = 0  \\
+		&A + B = 0 	\quad 	\Longrightarrow 	\quad	1 + B = 0	\quad	\Longrightarrow	\quad	B = -1.
+		\end{align*}
+	So
+		\[
+		\frac{1}{x(1+x^2)} = \frac{1}{x} - \frac{x}{1+x^2}
+		\]
+	and thus
+		\begin{align*}
+		\int x^{-2} \arctan(x) \d x
+		&= -x^{-1} \arctan(x) + \int \frac{1}{x(1+x^2)} \d x  \\
+		&= -x^{-1} \arctan(x) + \int \left( \frac{1}{x} - \frac{x}{1+x^2} \right) \d x  \\
+		&= -x^{-1} \arctan(x) + \ln |x| - \frac{1}{2} \ln (1+x^2) + C.
+		\end{align*}
 	\end{freeResponse}
 
 \end{problem}
