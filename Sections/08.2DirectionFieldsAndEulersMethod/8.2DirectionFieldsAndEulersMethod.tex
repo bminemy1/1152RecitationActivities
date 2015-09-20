@@ -34,6 +34,7 @@
 
 
 
+\begin{comment}
 \section{Warm up:}
 
 	\begin{freeResponse}
@@ -43,6 +44,7 @@
 \begin{instructorNotes}
 
 \end{instructorNotes}
+\end{comment}
 
 
 
@@ -56,15 +58,32 @@
 
 %problem 1
 \begin{problem}
-
+	
+	\begin{enumerate}
+	\item  The following is a direction field for the differential equation $\dd[y]{x} = y^2 - x^2$.
+	
+		%\begin{image}
+		%\includegraphics[trim= 170 420 250 180]{Figure8-2-1.pdf}
+		%\end{image}
+		
+		Sketch the solution such that $y\left( \frac{1}{2} \right) = 1$.
 	\begin{freeResponse}
 	
 	\end{freeResponse}
 	
+	
+	
+	\item  Use Euler's Method to give a numerical estimate to the solution of the differential equation $y' = y^2 - t^2$ at $y(2)$ that goes through the point $\left( \frac{1}{2}, 1 \right)$.  
+	Use $\Delta t = 0.5$.
+	\begin{freeResponse}
+	
+	\end{freeResponse}
+	\end{enumerate}
+	
 \end{problem}
 
 \begin{instructorNotes}
-
+The major point here is that (a) and (b) are the same problem, presented with two different representations.
 \end{instructorNotes}
 
 
@@ -75,7 +94,18 @@
 
 %problem 2
 \begin{problem}
-
+Describe why the following direction field could be the direction field for the differential equation 
+	\[
+	\dd[y]{t} y \cos(t)
+	\]
+but \dfn{not} for 
+	\[
+	\dd[y]{t} = y \sin(t) 	\qquad	\text{or}	\qquad	\dd[y]{t} = t \cos(y).
+	\]
+	
+	%\begin{image}
+	%\includegraphics[trim= 170 420 250 180]{Figure8-2-2.pdf}
+	%\end{image}
 	\begin{freeResponse}
 	
 	\end{freeResponse}
@@ -83,7 +113,8 @@
 \end{problem}
 
 \begin{instructorNotes}
-
+Students should examine when $t$ varies across quadrants, combined with the sign of $y$ at points $(t,y)$ (with $y'=t \cos y$, $y$ is going through ``quadrants'').  Checking where $y'=0$ can reveal why the other two differential equations are not satisfied.  
+This could all just be a whole class discussion with the instructor bringing up strategies.
 \end{instructorNotes}
 
 
@@ -94,7 +125,20 @@
 
 %problem 3
 \begin{problem}
-
+Match each of the following differential equations with a corresponding direction field:
+	\begin{multicols}{2}
+	\begin{enumerate}
+	\item[i.]	$y' = \frac{t}{2+y}$
+	\item[ii.]	$y' = \cos(t+y)$
+	\item[iii.]	$y' = 1+y^2$
+	\item[iv.]	$y' = ty$
+	\end{enumerate}
+	\end{multicols}
+	
+	%\begin{image}
+	%\includegraphics[trim= 170 420 250 180]{Figure8-2-3.pdf}
+	%\end{image}
+	
 	\begin{freeResponse}
 	
 	\end{freeResponse}
@@ -102,7 +146,9 @@
 \end{problem}
 
 \begin{instructorNotes}
-
+Several strategies exist.  
+Make sure to ask what special quality direction fields of autonomous differential equations have.  
+Depending on time, this also could all be done as a whole class.
 \end{instructorNotes}
 
 
