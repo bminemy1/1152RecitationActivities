@@ -68,7 +68,9 @@
 		
 		Sketch the solution such that $y\left( \frac{1}{2} \right) = 1$.
 	\begin{freeResponse}
-	
+	%\begin{image}
+	%\includegraphics[trim= 170 420 250 180]{Figure8-2-4.pdf}
+	%\end{image}
 	\end{freeResponse}
 	
 	
@@ -77,6 +79,24 @@
 	Use $\Delta t = 0.5$.
 	\begin{freeResponse}
 	
+		%\begin{table}[]
+		%\centering
+		\begin{tabular}{|c|c|c|c|}
+		\hline
+		 $T$ 	& 	$y$ 	 & 	$\dd[y]{t}=y^2-t^2$ 	 &	$y + \dd[y]{t} \cdot \Delta t$   	\\
+		 \hline
+		 $0.5$	&	$1$	  &	$0.75$		  	&	$1.375$	\\
+		 \hline
+		 $1$	&	$1.375$  &	$0.890625$		  	&	$1.820313$   \\
+		 \hline
+		 $1.5$	&	$1.820313$  &	$1.063538$		&	$2.352081$    \\
+		 \hline
+		 $2$	&	$2.352081$  &  &    \\
+		 \hline
+		\end{tabular}
+		%\end{table}
+		
+	So, $y(2) \approx 2.352081$.
 	\end{freeResponse}
 	\end{enumerate}
 	
@@ -107,7 +127,34 @@ but \dfn{not} for
 	%\includegraphics[trim= 170 420 250 180]{Figure8-2-2.pdf}
 	%\end{image}
 	\begin{freeResponse}
+		%\begin{image}
+		%\includegraphics[trim= 170 420 250 180]{Figure8-2-5.pdf}
+		%\end{image}
+		
+	Look along the line $t=0$ (the $y$-axis).
 	
+	\begin{itemize}
+	
+	\item  For $\dd[y]{t} = y \sin(t)$:
+	
+	$\eval{\dd[y]{t}}_{t=0} = y \sin(0) = 0$.  
+	But this direction field does not have horizontal tangents at each point along $t=0$.  
+	So it \dfn{cannot} be the direction field for $\dd[y]{t} = y \sin(t)$.
+	
+	\item  For $\dd[y]{t} = t \cos(y)$:
+	
+	$\eval{\dd[y]{t}}_{t=0} = (0) \cos(y) = 0$.  
+	But again this direction field does not have horizontal tangents at each point along $t=0$.  
+	So it \dfn{cannot} be the direction field for $\dd[y]{t} = t \cos(y)$.
+	
+	\item  For $\dd[y]{t} y \cos(t)$:
+	
+	Along $t=0$, this equation is $\dd[y]{t} = y \cos(0) = y$.  
+	However, when $y$ is positive, the slopes are negative.  
+	Also, when $y$ is negative, the slopes are positive.  
+	So this is \dfn{not} the direction field for $\dd[y]{t} = y \cos(t)$, either.
+	
+	\end{itemize}
 	\end{freeResponse}
 		
 \end{problem}
@@ -125,7 +172,7 @@ This could all just be a whole class discussion with the instructor bringing up 
 
 %problem 3
 \begin{problem}
-Match each of the following differential equations with a corresponding direction field:
+Match each of the following differential equations with a corresponding direction field (if it is present):
 	\begin{multicols}{2}
 	\begin{enumerate}
 	\item[i.]	$y' = \frac{t}{2+y}$
@@ -140,7 +187,27 @@ Match each of the following differential equations with a corresponding directio
 	%\end{image}
 	
 	\begin{freeResponse}
+	Look along the line $t=0$ (the $y$-axis).
+	\begin{enumerate}
 	
+	\item[(i)] $y' = \frac{t}{2+y}$ and (iv) $y'=ty$ must both be identically $0$ along the $y$-axis.  
+	However, none of the direction fields given have horizontal slopes along the $y$-axis.  
+	So none of them can be the direction field for (i) or (iv).  
+	
+	\item[(ii)]  At the origin, we have $y' = \cos(t+y) = \cos(0) = 1$.  
+	So the direction field for (ii) must have slope $1$ at the origin.  
+	This eliminates (b) and (d).  
+	Now look at the point $\left( 0, \frac{\pi}{2} \right)$.  
+	We have $\eval{y'}_{(0,\frac{\pi}{2})} = \cos \left( \frac{\pi}{2} \right) = 0$, so the direction field must be horizontal at that point.  
+	That means that it cannot be (a) or (c) either.
+	
+	\item[(iii)]  Here $y' = 1+y^2$, so there is no $t$ on the right hand side of the equation.  
+	Therefore, $y'$ depends only on $y$.  
+	At $y=0$ the slope is $1$, then as $y$ increases the slopes increase too.  
+	Similarly, as $y$ gets more and more negative, the slope gets more and more positive.  
+	So it seems as if this direction field is (a).
+	
+	\end{enumerate}
 	\end{freeResponse}
 
 \end{problem}
