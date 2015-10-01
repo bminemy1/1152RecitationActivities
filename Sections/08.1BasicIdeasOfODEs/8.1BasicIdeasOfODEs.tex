@@ -139,7 +139,11 @@ Suggest that each member in the group try a different possible solution.
 
 %problem 2
 \begin{problem}
-Verify that, if $y(0)=0$, that both $f(x)=1-(x^2+1)^2$ \dfn{and} $g(x) = 1 - (x^2-1)^2$ are solutions to the differential equation $\dd[y]{x} = 4x\sqrt{1-y}$.
+Verify that both $f(x)=1-(x^2+1)^2$ \dfn{and} $g(x) = 1 - (x^2-1)^2$ are solutions to the initial value problem
+	\[
+	\dd[y]{x} = -4x\sqrt{1-y}  \qquad  y(0) = 0.
+	\]
+	
 	\begin{freeResponse}
 		\begin{align*}
 		f'(x) &= -2(x^2+1) \cdot 2x  \\
@@ -202,7 +206,7 @@ Find a specific solution to the differential equation $\dd[y]{x} = x^{-2} \arcta
 		\Longrightarrow \qquad &1 = A(1+x^2) + (Bx+C)x  \\
 		\Longrightarrow \qquad &1 = (A+B)x^2 + Cx + A.
 		\end{align*}
-	Comparing coefficients, we see that $A=1$, $C+0$, and $B = -1$.  
+	Comparing coefficients, we see that $A=1$, $C=0$, and $B = -1$.  
 		}
 		
 	Thus
@@ -219,7 +223,7 @@ Find a specific solution to the differential equation $\dd[y]{x} = x^{-2} \arcta
 		\end{align*}
 	Therefore
 		\[
-		y(t) = - \frac{1}{x} \arctan(x) + \ln|x| - \frac{1}{2} \ln(1+x^2) + 5 + \frac{\pi}{4} + \frac{1}{2} \ln(2).
+		\boxed{y(t) = - \frac{1}{x} \arctan(x) + \ln|x| - \frac{1}{2} \ln(1+x^2) + 5 + \frac{\pi}{4} + \frac{1}{2} \ln(2).}
 		\]
 	\end{freeResponse}
 
@@ -286,7 +290,7 @@ Find a specific solution to the initial value problem
 		\end{align*}
 	Thus,
 		\[
-		y(t) = -x^2\cos(x) + 2x\sin(x) + 2\cos(x) + 3.
+		\boxed{y(t) = -x^2\cos(x) + 2x\sin(x) + 2\cos(x) + 3.}
 		\]
 	\end{freeResponse}
 	
@@ -317,20 +321,24 @@ Explain why the functions with the given graphs cannot be solutions of the diffe
 	\includegraphics[trim= 170 300 190 310, scale=1]{Figure8-1-2.pdf}	
 	\end{image}
 	
-	The second graph cannot satisfy the differential equation since the slope of the tangent line at $x=1$ is positive
+	Now consider the second graph.  
+	One property of $y(x)$ that we see on this graph is that $y(1) = 1$.  
+	Also, in this graph we see that the slope of the tangent line at $x=1$ is positive, but 
+		\[
+		\eval{\dd[y]{x}}_{x=1} = e^1(1-1) = 0.
+		\]
 	
 	\begin{image}
 	\includegraphics[trim= 170 330 190 330, scale=1]{Figure8-1-3.pdf}	
 	\end{image}
 	
-	but $\eval{\dd[y]{x}}_{x=0} = e^0(1-1) = 0.$
 	\end{freeResponse}
 
 \end{problem}
 
 \begin{instructorNotes}
 This activity anticipates the idea of direction fields to be covered in Section 8.2.  
-Students should eventually realize that differrential equations are statements about the slope of the function at each point $(x,y)$.  
+Students should eventually realize that differential equations are statements about the slope of the function at each point $(x,y)$.  
 Issues such as where the slope equals $0$ or where the slope is positive, negative, increasing, or decreasing should arise in the solution/discussion.  
 The first graph has a negative slope at some places ($e^x$ and $(y-1)^2$ are always non-negative), and the second graph does not have a slope of $0$ at the point $(1,1)$.  
 \end{instructorNotes}
