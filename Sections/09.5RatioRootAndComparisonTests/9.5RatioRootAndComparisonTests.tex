@@ -34,14 +34,46 @@
 
 
 
+%Comparison Test Problem
 \section{Warm up:}
-
-	\begin{freeResponse}
+For each of the following, answer {\bf True} or {\bf False}, and explain why.
+	\begin{enumerate}
 	
+	\item  If $a_n \geq 0$ and $\sum_{n=0}^\infty a_n$ converges, then $\sum_{n=0}^\infty a_n^2$ converges.
+	
+	\item  If $a_n, b_n \geq 0$ and both $\sum_{n=0}^\infty a_n$ and $\sum_{n=0}^\infty b_n$ converge, then $\sum_{n=0}^\infty a_n b_n$ converges.
+	
+	\end{enumerate}
+	
+	\begin{freeResponse}
+		\begin{enumerate}
+		
+		\item  \dfn{True}
+		
+		Since $\sum_{n=0}^\infty a_n$ converges, $\lim_{n \to \infty} a_n = 0$.  
+		So, in particular, there exists an integer $N$ such that $a_k < 1$ for all $k \geq N$.  
+		Then for all $k \geq N$, $a_k^2 < a_k$, and therefore we have that
+			\[
+			\sum_{n=N}^\infty a_n^2 < \sum_{n=N}^\infty a_n.
+			\]
+		Thus,  by the Comparison Test, $\sum_{n=0}^\infty a_n^2$ is convergent.
+		
+		
+		
+		\item  \dfn{True}
+		
+		Just as in part (a) there exists an integer $N$ such that $a_k < 1$ for all $k \geq N$.  
+		Then
+			\[
+			\sum_{n=N}^\infty a_n b_n < \sum_{n=N}^\infty b_n
+			\]
+		and thus, by the Comparison Test, $\sum_{n=0}^\infty a_n b_n$ is convergent.
+		
+		\end{enumerate}
 	\end{freeResponse}
 	
 \begin{instructorNotes}
-
+Show that these series converge formally using the comparison test.
 \end{instructorNotes}
 
 
@@ -54,17 +86,79 @@
 
 
 
+%Root and Ratio Test Problem
 %problem 1
 \begin{problem}
-
-	\begin{freeResponse}
+Determine if the following series converge or diverge.
+	\begin{enumerate}
 	
+	\item  $\sum_{n=1}^\infty \frac{(7n+1)^2 \cdot 2^n}{5^n}$
+	
+	\item  $\sum_{n=1}^\infty a_n$, where $a_{n+1} = \frac{2n+5}{3n-1}$ and $a_1 = 1$.
+	
+	\item  $\sum_{n=0}^\infty \frac{n^2 + 2n + 1}{3n^2 +1}$
+	
+	\item  $\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}$
+	
+	\end{enumerate}
+	
+	\begin{freeResponse}
+		\begin{enumerate}
+	
+		\item  \dfn{Ratio Test}
+			\begin{align*}
+			\lim_{n \to \infty} \frac{a_{n+1}}{a_n} 
+			&= \lim_{n \to \infty} \left[ \frac{(7(n+1) + 1)^2 \cdot 2^{n+1}}{5^{n+1}} \cdot \frac{5^n}{(7n+1)^2 \cdot 2^n} \right]  \\
+			&= \lim_{n \to \infty} \frac{(7n+8)^2 \cdot 2}{5 \cdot (7n+1)^2}  \\
+			&= \frac{49 \cdot 2}{49 \cdot 5} = \frac{2}{5}.
+			\end{align*}
+		Thus, since $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} < 1$, this series \boxed{converges}.  
+		
+		
+	
+		\item  \dfn{Ratio Test}
+		
+		Even though the terms in this series look a little weird, this is set up perfectly for the Ratio Test:
+			\[
+			\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \lim_{n \to \infty} \frac{2n+5}{3n-1} = \frac{2}{3}.
+			\]
+		Thus, since $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} < 1$, this series \boxed{converges}.  
+		
+		
+	
+		\item  \dfn{Divergence Test}
+		
+		Notice that
+			\[
+			\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{n^2 + 2n + 1}{3n^2 +1} = \frac{1}{3}.
+			\]
+		Therefore, since $\lim_{n \to \infty} a_n \neq 0$, by the Divergence Test this series \boxed{diverges}.
+		
+		
+	
+		\item  \dfn{Integral Test}
+		
+		First, notice that $f(x) = \frac{1}{x (\ln x)^2}$ is a decreasing and positive function on $[2,\infty)$.
+		Then
+			\begin{align*}
+			\int_2^\infty f(x) \d x 
+			&= \int_2^\infty \frac{1}{x (\ln x)^2} \d x  \\
+			&= \lim_{b \to \infty} \int_2^b \frac{1}{x (\ln x)^2} \d x  \\
+			&= \lim_{b \to \infty} \int_{\ln 2}^{\ln b} u^{-2} \d u  \quad  {\color{red} u = \ln x, \d u = \frac{1}{x} \d x}  \\
+			&= \lim_{b \to \infty} \eval{\frac{-1}{u}}_{\ln 2}^{\ln b}  \\
+			&= \lim_{b \to \infty} \left( \frac{-1}{\ln b} + \frac{1}{\ln 2} \right)  \\
+			&= 0 + \frac{1}{\ln 2} = \frac{1}{\ln 2}.
+			\end{align*}
+		Therefore, since the above integral converges, the series $\sum_{n=2}^\infty \frac{1}{n(\ln n)^2}$ \boxed{converges} by the Integral Test.
+	
+		\end{enumerate}
 	\end{freeResponse}
 	
 \end{problem}
 
 \begin{instructorNotes}
-
+Let the students experiment with what tests to use.  
+Perhaps give two problems per group.
 \end{instructorNotes}
 
 
@@ -73,17 +167,49 @@
 
 
 
+%Root and Ratio Test Problem
 %problem 2
 \begin{problem}
-
+How many terms are needed to estimate $\sum_{k=1}^\infty \frac{1}{k^2+1}$ to within $10^{-4}$?
+What is the estimate for the sum of the series?
 	\begin{freeResponse}
+	Let $f(x) = \frac{1}{x^2 + 1}$.  
+	Note that $f(x)$ is continuous, decreasing, and positive for $x \geq 1$, and $a_k = f(k)$.  
 	
+	If $S = \sum_{k=1}^\infty \frac{1}{k^2 + 1}$ is the actual value of the sum, and $S_n = \sum_{k=1}^n \frac{1}{k^2 + 1}$ is the $n^{th}$ partisl sum, then the remainder $R_n = S - S_n$ can be bounded above by
+		\[
+		R_n < \int_n^\infty f(x) \d x.
+		\]
+	So we need to find $n$ so that
+		\begin{equation}\label{inequality}
+		\int_n^\infty \frac{1}{x^2 + 1} \d x < 10^{-4}.
+		\end{equation}
+	We compute
+		\begin{align*}
+		\int_n^\infty \frac{1}{x^2 + 1} \d x
+		&= \lim_{b \to \infty} \int_n^b \frac{1}{x^2+1} \d x  \\
+		&= \lim_{b \to \infty} \eval{ \arctan(x) }_n^b  \\
+		&= \lim_{b \to \infty} \left( \arctan(b) - \arctan(n) \right)  \\
+		&= \frac{\pi}{2} - \arctan(n).
+		\end{align*}
+	Plugging into equation \eqref{inequality} we see that we want
+		\begin{align*}
+		&\frac{\pi}{2} - \arctan(n) < 10^{-4}  \\
+		\Longrightarrow 	\quad	&\arctan(n) > \frac{\pi}{2} - 10^{-4}  \\
+		\Longrightarrow 	\quad	&n > \tan \left( \frac{\pi}{2} - 10^{-4} \right) \approx 9999.999967 \approx 10,000.
+		\end{align*}
+		
+	Therefore, $10,000$ terms will estimate $\sum_{k=1}^\infty \frac{1}{k^2+1}$ to within $10^{-4}$.  
+	Using a computer, we can also compute
+		\[
+		\sum_{k=1}^{10,000} \frac{1}{k^2+1} \approx 1.07657.
+		\]
 	\end{freeResponse}
 		
 \end{problem}
 
 \begin{instructorNotes}
-
+This should be a straightforward calculation, but calculators may be needed.
 \end{instructorNotes}
 
 
@@ -92,17 +218,141 @@
 
 
 
+%Comparison Test Problem
 %problem 3
 \begin{problem}
-
-	\begin{freeResponse}
+	\begin{enumerate}
 	
+	\item  Why can we not use the Comparison test with $\sum_{k=1}^\infty \frac{1}{k^2}$ to show that $\sum_{k=1}^\infty \frac{1}{k^2 - 5}$ converges?
+	
+	\item  Adjust $\sum_{k=1}^\infty \frac{1}{k^2}$ to show that $\sum_{k=1}^\infty \frac{1}{k^2 - 5}$ converges via the Comparison Test.
+	
+	\item  Give a convergent series we can use in the Limit Comparison Test to show that $\sum_{k=1}^\infty \frac{1}{k^2 - 5}$ converges.  
+	
+	\end{enumerate}
+	
+	\begin{freeResponse}
+		\begin{enumerate}
+		
+		\item  We cannot use the Comparison Test here because 
+			\[
+			\frac{1}{k^2} < \frac{1}{k^2 - 5}
+			\]
+		for all $k \geq 1$.  So we would just be showing the the series in question is greater than a series which converges, which does not give us any information.
+		
+		
+		
+		\item  Notice that
+			\[
+			\frac{2}{k^2} > \frac{1}{k^2 - 5}
+			\]
+		for all $k \geq 4$.  
+		Since $\sum_{k=1}^\infty \frac{1}{k^2}$ converges, $\sum_{k=1}^\infty \frac{2}{k^2} = 2 \sum_{k=1}^\infty \frac{1}{k^2}$.  
+		Thus, $\sum_{k=1}^\infty \frac{2}{k^2}$ converges.
+		
+		Therefore, the Comparison Test with $\sum_{k=1}^\infty \frac{2}{k^2}$ shows that $\sum_{k=0}^\infty \frac{1}{k^2-5}$ converges.
+		
+		
+		
+		\item  For the Limit Comparison Test, we \dfn{can} use $\sum_{k=1}^\infty \frac{1}{k^2}$.  
+			\begin{align*}
+			\lim_{k \to \infty} \frac{\frac{1}{k^2-5}}{\frac{1}{k^2}}
+			&= \lim_{k \to \infty} \frac{k^2}{k^2-5}  \\
+			&= 1.
+			\end{align*}
+			
+		Thus, since $\sum_{k=1}^\infty \frac{1}{k^2}$ converges, by the Limit Comparison Test we know that $\sum_{k=0}^\infty \frac{1}{k^2-5}$ converges.
+		
+		\end{enumerate}
 	\end{freeResponse}
 
 \end{problem}
 
 \begin{instructorNotes}
+This problem may be done as a quick whole class discussion.  
+For (b), use something like $\frac{2}{k^2}$.  
+Be sure to determine for which $k$ the inequality will hold.
+\end{instructorNotes}
 
+
+
+
+
+
+
+%Comparison Test Problem
+%problem 4
+\begin{problem}
+Determine if the following series converge or diverge.
+	\begin{multicols}{2}
+	\begin{enumerate}
+	
+	\item  $\sum_{n=0}^\infty \frac{n^2 + 2n + 1}{3n^3+1}$
+	
+	\item  $\sum_{n=0}^\infty \frac{n^2+2n+1}{3n^4+1}$
+	
+	\item  $\sum_{n=0}^\infty \frac{\cos^2 n}{n^3+1}$
+	
+	\item  $\sum_{n=1}^\infty \left[ \left( 1+\frac{1}{n} \right)^2 e^{-n} \right]$
+	
+	\end{enumerate}
+	\end{multicols}
+	
+	\begin{freeResponse}
+		\begin{enumerate}
+		
+		\item  Use the \dfn{Limit Comparison Test} with $\sum_{n=1}^\infty \frac{1}{n}$.
+			\begin{align*}
+			\lim_{n \to \infty} \frac{a_n}{b_n}
+			&= \lim_{n \to \infty} \frac{n^2+2n+1}{3n^3+1} \cdot \frac{n}{1}  \\
+			&= \frac{1}{3}.
+			\end{align*}
+			
+		Therefore, since $\sum_{n=1}^\infty \frac{1}{n}$ diverges, by the Limit Comparison Test we know that $\sum_{n=0}^\infty \frac{n^2+2n+1}{3n^3+1}$ diverges.
+		
+		
+		
+		\item  Use the \dfn{Limit Comparison Test} with $\sum_{n=1}^\infty \frac{1}{n^2}$.
+			\begin{align*}
+			\lim_{n \to \infty} \frac{a_n}{b_n}
+			&= \lim_{n \to \infty} \frac{n^2+2n+1}{3n^4+1} \cdot \frac{n^2}{1}  \\
+			&= \frac{1}{3}.
+			\end{align*}
+			
+		Therefore, since $\sum_{n=1}^\infty \frac{1}{n^2}$ converges, by the Limit Comparison Test we know that $\sum_{n=0}^\infty \frac{n^2+2n+1}{3n^4+1}$ converges.
+		
+		
+		
+		\item  Use the \dfn{Comparison Test} with $\sum_{n=1}^\infty \frac{1}{n^3}$.  
+		
+		Since we always have that $0 < \cos^2(n) < 1$, we know that
+			\[
+			\frac{\cos^2(n)}{n^3 + 1} \leq \frac{1}{n^3+1} < \frac{1}{n^3}.
+			\]
+		Therefore, by the Comparison Test, we have that $\sum_{n=0}^\infty \frac{\cos^2 n}{n^3+1}$ converges.
+		
+		
+		
+		\item  Use the \dfn{Comparison Test} with $\sum_{n=1}^\infty 2 \cdot e^{-n}$.
+		
+		First, notice that for all $n \geq 3$,
+			\[
+			\left( 1 + \frac{1}{n} \right)^2 < 2.
+			\]		
+		Also, notice that $\sum_{n=1}^\infty e^{-n}$ is a convergent geometric series.  
+		Therefore $\sum_{n=1}^\infty 2 \cdot e^{-n}$ converges, and so $\sum_{n=1}^\infty \left[ \left( 1+\frac{1}{n} \right)^2 e^{-n} \right]$ converges by the Comparison Test.
+		
+		\end{enumerate}
+	\end{freeResponse}
+
+\end{problem}
+
+\begin{instructorNotes}
+These are all done using either the Comparison Test or the Limit Comparison Test.  
+Parts (a) and (b) should be done with the limit comparison test (explain why).  
+It is important to compare and contrast these two problems.  
+Parts (c) and (d) should be done with the Comparison Test (again, explain why).  
+The $e^{-n}$ should be treated as a geometric series.
 \end{instructorNotes}
 
 
