@@ -49,11 +49,11 @@ For each of the following, write the given polynomial in summation notation star
 	\begin{freeResponse}
 	\begin{enumerate}
 	
-	\item  
+	\item  $\sum_{k=0}^4 (-1)^k (2k+3) \frac{x^{k+1}}{k+2}$.  
 	
-	\item  
+	\item  $\sum_{k=0}^3 \frac{1 \cdot 5 \cdot \hdots \cdot (4k+1)}{2^{k+1} (k+1)!} x^{2k+1}.$
 	
-	\item  
+	\item  $\sum_{k=0}^3 \frac{(-1)^k}{(2k)!} (x-1)^{k+3}$.  
 	
 	\end{enumerate}
 	\end{freeResponse}
@@ -79,11 +79,19 @@ Also, you might want to discuss starting with $k$ equaling another number other 
 \begin{problem}
 Assuming that the function $f(x)$ is infinitely differentiable, and given that
 	\[
-	f(x) \approx f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + c_4 (x-a)^4
+	f(x) = f(a) + \frac{f'(a)}{1!}(x-a)^1 + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!}(x-a)^3 + c_4 (x-a)^4 + \frac{f^{(5)}(a)}{5!}(x-a)^5
 	\]
 show that the coefficient $c_4$ of the $(x-a)^4$ term in the Taylor polynomial is $\frac{f^{(4)}(a)}{4!}$.  
 	\begin{freeResponse}
-	
+	Notice that we have the following:
+		\begin{align*}
+		&f'(x) =  f'(a) + f''(a)(x-a) + \frac{f^{(3)}(a)}{2} (x-a)^2 + 4 c_4 (x-a)^3 + \frac{f^{(5)}(a)}{4!}(x-a)^4  \\
+		&f''(x) =  f''(a) + f^{(3)}(a) (x-a) + 4 \cdot 3 c_4 (x-a)^2 + \frac{f^{(5)}(a)}{3!}(x-a)^3  \\
+		&f^{(3)}(x) =  f^{(3)}(a) + 4 \cdot 3 \cdot 2 c_4 (x-a)  + \frac{f^{(5)}(a)}{2}(x-a)^2 \\
+		&f^{(4)}(x) =   4! \cdot c_4 + f^{(5)}(a)(x-a)  \\
+		&f^{(4)}(a) = 4! \cdot c_4 + 0  \\
+		&\Longrightarrow \qquad \boxed{c_4 = \frac{f^{(4)}(a)}{4!}}.
+		\end{align*}
 	\end{freeResponse}
 	
 \end{problem}
@@ -104,7 +112,20 @@ This problem should be done as a whole class discussion, perhaps for about $5$ m
 Let $f(x) = \sin(2x)$.  
 Find $p_3(x)$ about the point $a = \frac{\pi}{8}$.  
 	\begin{freeResponse}
-	
+	First, note that around $a$
+		\[
+		p_3(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2}(x-a)^2 + \frac{f^{(3)}(a)}{3!}(x-a)^3.
+		\]
+	So we compute
+		\begin{align*}
+		&f'(x) = 2 \cos(2x) 	\quad	\Longrightarrow	\quad	f' \left( \frac{\pi}{8} \right) = \sqrt{2}  \\
+		&f''(x) = -4\sin(2x) 	\quad	\Longrightarrow	\quad	f'' \left( \frac{\pi}{8} \right) = - 2 \sqrt{2}  \\
+		&f^{(3)}(x) = -8\cos(2x)	\quad	\Longrightarrow	\quad	f^{(3)} \left( \frac{\pi}{8} \right) = -4\sqrt{2}.
+		\end{align*}
+	Therefore
+		\[
+		\boxed{p_3(x) = \frac{\sqrt{2}}{2} + \sqrt{2} \left( x - \frac{\pi}{8} \right) - \sqrt{2} \left( x - \frac{\pi}{8} \right)^2 - \frac{2\sqrt{2}}{3} \left( x - \frac{\pi}{8} \right)^3}.
+		\]
 	\end{freeResponse}
 		
 \end{problem}
@@ -132,7 +153,7 @@ Let $f(x) = xe^{-x}$ on the interval $[-2,8]$.
 		\begin{align*}
 		\text{Fun facts: } f'(x) &= -e^{-x}(x-1)  \\
 		f''(x) &= e^{-x} (x-2) \\
-		f'''(x) &= e^{-x} (x-3) \\
+		f^{(3)}(x) &= -e^{-x} (x-3) \\
 		f^{(4)}(x) &= e^{-x} (x-4) 
 		\end{align*}
 	
@@ -152,8 +173,19 @@ Let $f(x) = xe^{-x}$ on the interval $[-2,8]$.
 	\begin{enumerate}
 	
 	\item  
+		\begin{align*}
+		p_4(x) &= f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f^{(3)}}{3!}(x-a)^3 + \frac{f^{(4)}}{4!}(x-a)^4  \\
+		&= 3e^{-3} -2e^{-3}(x-3) + \frac{e^{-3}}{2}(x-3)^2 - \frac{e^{-3}}{4!}(x-3)^4.
+		\end{align*}
 	
 	\item  
+		\[
+		p_4(x) = \sum_{k=0}^4 \frac{(-1)^k e^{-3} (3-k)}{k!}(x-3)^k.
+		\]
+		\[
+		R_4(x) = f(x)-p_4(x) = \frac{f^{(5)}(c)}{5!}(x-3)^5 = \frac{-e^{-c} (c-5)}{5!}(x-3)^5
+		\]
+	for some $c$ between $x$ and $3$.
 	
 	\item  
 	
