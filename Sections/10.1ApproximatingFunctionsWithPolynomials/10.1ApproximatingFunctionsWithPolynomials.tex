@@ -163,7 +163,7 @@ Let $f(x) = xe^{-x}$ on the interval $[-2,8]$.
 	\item  Calculate $p_4(4.5)$ and, using $R_4(4.5)$, estimate how close $p_4(4.5)$ is to $f(4.5)$.  
 	Do the same for $p_4(1.5)$.  
 	
-	\item  Use the remainder term $R_4(x)$ to estimate the maximum error for $p_4(x)$ on $[-2,8]$.
+	\item  Use the remainder term $R_4(x)$ to estimate the maximum error for $p_4(x)$ on $[-2,6]$.
 	
 	\item  How large must $n$ be to assure that the $n^{th}$ degree Taylor polynomial for $f(x) = xe^{-x}$ about $a=3$ approximates $2e^{-2}$ within $10^{-5}$?
 	
@@ -188,10 +188,103 @@ Let $f(x) = xe^{-x}$ on the interval $[-2,8]$.
 	for some $c$ between $x$ and $3$.
 	
 	\item  
+		\[
+		p_4(4.5) = 3e^{-3} - 2e^{-3}(1.5) + \frac{e^{-3}}{2}(1.5)^2 - \frac{e^{-3}}{4!}(1.5)^4 \approx 0.0455
+		\]
+	and
+		\[
+		R_4(4.5) \leq \biggr| \max_{c \in [3,4.5]} f^{(5)}(c) \biggr| \cdot \frac{(1.5)^5}{5!}.
+		\]
+	Now, $f^{(5)}(x) = -e^{-x}(x-5)$.  
+	To see whether this is increasing or decreasing, we compute its derivative $f^{(6)}(x) = e^{-x}(x-6) < 0$ on $[3,4.5]$.  
+	Thus, $f^{(5)}(x)$ is decreasing on $[3,4.5]$, and therefore its maximum occurs at $x=3$.  
+	So we compute
+		\begin{align*}
+		R_4(4.5) &\leq \biggr| f^{(5)}(3) \biggr| \cdot \frac{(1.5)^5}{5!}  \\
+		&= |(0.5)e^{-4.5}| \cdot \frac{(1.5)^5}{5!}  \\
+		&\approx 0.00035.
+		\end{align*}
+		
+	Now we do all of the same work for $1.5$.  
+		\[
+		p_4(1.5) = 3e^{-3} - 2e^{-3}(-1.5) + \frac{e^{-3}}{2}(-1.5)^2 - \frac{e^{-3}}{4!}(-1.5)^4 \approx 0.344
+		\]
+		\begin{align*}
+		R_4(4.5) &\leq \biggr| \max_{c \in [1.5,3]} f^{(5)}(c) \biggr| \cdot \frac{|-1.5|^5}{5!} \\
+		&= | f^{(5)}(1.5) | \cdot \frac{(1.5)^5}{5!}  \quad {\color{red}\text{f is similarly decreasing on [1.5,3]}}\\
+		&= | 3.5 e^{-1.5} |  \cdot \frac{(1.5)^5}{5!}  \\
+		&\approx 0.04942.
+		\end{align*}
 	
 	\item  
+		\[
+		R_4(x) \leq \biggr| \max_{c \in [-2,6]} f^{(5)}(c) \biggr| \cdot \frac{|x-3|^5}{5!}.
+		\]
+	From part (c) we know that $f^{(6)}(x) = e^{-x}(x-6)$.  
+	This function is nonpositive on $[-2,6]$, and the only zero is at $x=6$.  
+	So $f^{(5)}(x)$ is decreasing on the entire interval and therefore attains its maximum value at $x=-2$.  
+	Thus
+		\begin{align*}
+		R_4(x) &\leq |f^{(5)}(-2)| \cdot \frac{|-5|^5}{5!}  \\
+		&= 7e^2 \cdot \frac{5^5}{5!}  \\
+		&= 1,346.96335
+		\end{align*}
 	
-	\item  
+	\item  First, note that $2e^{-2} = f(2)$.  
+	Then we need to find $n$ so that
+		\[
+		R_n \leq 10^{-5}.
+		\]
+	Recall that
+		\[
+		R_n(x) \leq \biggr| \max_{c \in [2,3]} f^{(n+1)}(c) \biggr| \cdot \frac{|2-3|^{n+1}}{(n+1)!}.
+		\]
+	Note that
+		\[
+		f^{(n+1)}(x) = (-1)^{n+1} e^{-x} (x - (n+1)).
+		\]
+	\begin{itemize}
+	\item For $n$ odd, $f^{(n+1)}(x)$ is decreasing and thus the max is at $c=2$.
+	\item For $n$ even, $f^{(n+1)}(x)$ is increasing and thus the max is at $c=3$.  
+	\end{itemize}
+	
+	So there are two cases:
+	
+	\vskip 10pt
+	
+	{\it Case 1:  $n+1$ is odd (and so $n$ is even)}
+	
+	Then the maximum occurs at $c=2$, and so
+		\begin{align*}
+		R_n(x) &\leq | (-1)^{n+1} e^{-2} (2 - (n+1)) | \cdot \frac{1}{(n+1)!}  \\
+		&= \biggr| \frac{(-1)^{n+1} (2-n-1)}{e^2 (n+1)!} \biggr| .
+		\end{align*}
+	Now, we want $n$ so that 
+		\[
+		\biggr| \frac{(-1)^{n+1} (2-n-1)}{e^2 (n+1)!} \biggr| \leq 10^{-5}.
+		\]
+	We solve for $n$ (using a calculator) to see that $n \geq 7.4$, and so $R_n \leq 10^{-5}$ for $n = 8$.
+	
+	\vskip 10pt
+	
+	{\it Case 2:  $n+1$ is even (and so $n$ is odd)}
+	
+	Now the maximum occurs at $c=3$, and so
+		\begin{align*}
+		R_n(x) &\leq | (-1)^{n+1} e^{-3} (3 - (n+1)) | \cdot \frac{1}{(n+1)!}  \\
+		&= \biggr| \frac{(-1)^{n+1} (3-n-1)}{e^3 (n+1)!} \biggr| .
+		\end{align*}
+	Now, we want $n$ so that 
+		\[
+		\biggr| \frac{(-1)^{n+1} (3-n-1)}{e^3 (n+1)!} \biggr| \leq 10^{-5}.
+		\]
+	We solve for $n$ (using a calculator) to see that $n \geq 6.8$, and so $R_n \leq 10^{-5}$ for $n = 7$.
+	
+	\vskip 10pt
+	
+	{\it Conclusion:} The error $R_n$ is smaller than $10^{-5}$ if $n$ is at least $7$.
+	
+	
 	
 	\end{enumerate}
 	\end{freeResponse}
@@ -202,9 +295,9 @@ Let $f(x) = xe^{-x}$ on the interval $[-2,8]$.
 This is the longest of the problems.  
 Part (a) is like the preceeding problem, where they need to remember to plug $3$ into the derivatives.  
 For part (b), they also need to recognize that $R_4(x)$ deals with $f^{(5)}(x)$ and not $f^{(4)}(x)$.  
-Writing $R_4(x) = \frac{f^{(5)}(c)}{5!} (x-3)^5$ for some $c \in [-2,8]$ will be sufficient at this stage (they will bound $f^{(5)}(c)$ in parts (c) and (d)).  
+Writing $R_4(x) = \frac{f^{(5)}(c)}{5!} (x-3)^5$ for some $c \in [-2,6]$ will be sufficient at this stage (they will bound $f^{(5)}(c)$ in parts (c) and (d)).  
 
-In part (c), the main issue is to bound $|f^{(5)}(x)| = |-e^{-5}(x-5)|$ on $[3,4.5]$ and $[1.5,3]$, and on $[2,8]$ for part (d).  
+In part (c), the main issue is to bound $|f^{(5)}(x)| = |-e^{-5}(x-5)|$ on $[3,4.5]$ and $[1.5,3]$, and on $[2,6]$ for part (d).  
 This is a problem of finding the absolute max (and min) of a function on a closed interval.  
 Students then need to find critical value(s) by finding when $f^{(6)}(x) = 0$ (or undefined) as well as consider endpoints $f^{(6)}(x) = e^{-x}(x-6)$, with critical $x=6$.  
 The last hurdle is to recognize we want to find the max of $|f^{(5)}(x)|$.  
