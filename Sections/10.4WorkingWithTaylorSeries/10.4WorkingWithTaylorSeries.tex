@@ -37,9 +37,13 @@
 \section{Warm up:}
 True or False:  To approximate $\frac{\pi}{3}$, one could substitute $x = \sqrt{3}$ into the Maclaurin series for $\tan^{-1}x$?
 	\begin{freeResponse}
-	
-	\end{freeResponse}
-	
+	{\bf False.}  The power series representation 
+		\[
+		\arctan(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{2k+1}
+		\]
+	only converges on $[-1,1]$.  
+	Since $\sqrt{3}$ is outside of the IOC, one cannot substitute $x=\sqrt{3}$ into this series to approximate $\frac{\pi}{3}$.  
+	\end{freeResponse}	
 \begin{instructorNotes}
 %There were no instructor notes for this handout.
 \end{instructorNotes}
@@ -62,7 +66,25 @@ Use power series to evaluate the limit
 	\]
 	
 	\begin{freeResponse}
-	
+	For $-1 < x \leq 1$, we know that
+		\[
+		\ln(1+x^2) = \sum_{k=1}^\infty \frac{(-1)^{k+1} (x^2)^k}{k} = \sum_{k=1}^\infty \frac{(-1)^{k+1} x^{2k}}{k}.
+		\]
+	For $- \infty < x < \infty$ we also know that
+		\[
+		\cos x = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}.
+		\]
+	Since $0$ is within both of these intervals, we can substitute these formulas into the limit:
+		\begin{align*}
+		\lim_{x \to 0} \frac{\ln (1+x^2)}{1 - \cos x}
+		&= \lim_{x \to 0} \frac{\sum_{k=1}^\infty \frac{(-1)^{k+1} x^{2k}}{k}}{1 - \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}}  \\
+		&= \lim_{x \to 0} \frac{x^2 - \frac{x^4}{2} + \frac{x^6}{3} - \hdots}{1 - \left( 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \hdots \right)}  \\
+		&= \lim_{x \to 0} \frac{x^2 - \frac{x^4}{2} + \frac{x^6}{3} - \hdots}{\frac{x^2}{2!} - \frac{x^4}{4!} + \hdots}  \\
+		&= \lim_{x \to 0} \frac{x^2 \left( 1 - \frac{x^2}{2} + \frac{x^4}{3} - \hdots \right) }{x^2 \left( \frac{1}{2!} - \frac{x^2}{4!} + \hdots \right)}  \\
+		&= \lim_{x \to 0} \frac{1 - \frac{x^2}{2} + \frac{x^4}{3} - \hdots }{\frac{1}{2!} - \frac{x^2}{4!} + \hdots }  \\
+		= \frac{1}{\frac{1}{2}} = \boxed{2}.
+		\end{align*} 
+		
 	\end{freeResponse}
 	
 \end{problem}
