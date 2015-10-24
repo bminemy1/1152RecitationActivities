@@ -109,7 +109,25 @@ approximate $f \left( \frac{1}{3} \right)$ with the first four non-zero terms of
 Estimate how close this approximation is.
 	
 	\begin{freeResponse}
+		\begin{align*}
+		f \left( \frac{1}{3} \right)
+		&= \int_0^{\frac{1}{3}} x^2 \arctan(x^4) \d x  \\
+		&= \int_0^\frac{1}{3} \left( x^2 \sum_{k=0}^\infty \frac{(-1)^k (x^4)^{2k+1}}{2k+1} \right) \d x  \\
+		&\approx \int_0^\frac{1}{3} x^2 \left( x^4 - \frac{x^{12}}{3} + \frac{x^{20}}{5} - \frac{x^{28}}{7} \right) \d x \quad {\color{red}\text{Using 4 terms of the power series}}\\
+		&= \int_0^\frac{1}{3} \left( x^6 - \frac{x^{14}}{3} + \frac{x^{22}}{5} - \frac{x^{30}}{7} \right) \d x  \\
+		&= \eval{\frac{x^7}{7} - \frac{x^{15}}{45} + \frac{x^{23}}{115} - \frac{x^{31}}{217}}_0^\frac{1}{3}  \\
+		&= \boxed{\frac{1}{3^7 \cdot 7} - \frac{1}{3^{15} \cdot 45} + \frac{1}{3^{23} \cdot 115} - \frac{1}{3^{31} \cdot 217}}.
+		\end{align*}
 	
+	The error of the series is less than the first truncated term, which here is the fifth term
+		\[
+		x^2 \cdot \frac{(x^4)^9}{9} = \frac{x^{38}}{9}.
+		\]
+	So we integrate
+		\[
+		\int_0^\frac{1}{3} \frac{x^{38}}{9} \d x  = \eval{\frac{x^{39}}{351}}_0^\frac{1}{3} = \frac{1}{3^{39} \cdot 351}.
+		\]
+	Therefore, an upper bound for the error is $\boxed{ \frac{1}{3^{39} \cdot 351}}$
 	\end{freeResponse}
 		
 \end{problem}
@@ -128,11 +146,29 @@ Estimate how close this approximation is.
 \begin{problem}
 Identify the function represented by the power series
 	\[
-	\sum_{k=0}^\infty \frac{k(k-1)x^4}{7^k}
+	\sum_{k=0}^\infty \frac{k(k-1)x^k}{7^k}
 	\]
 	
 	\begin{freeResponse}
-	
+		\begin{align*}
+		\sum_{k=0}^\infty \frac{k(k-1)x^k}{7^k}
+		&= x^2 \sum_{k=0}^\infty \frac{k(k-1)x^{k-2}}{7^k}  \\
+		&= x^2 \frac{d^2}{dx^2} \left( \sum_{k=2}^\infty \frac{x^k}{7^k} \right)  \\
+		&= x^2 \frac{d^2}{dx^2} \left( \sum_{k=2}^\infty \left( \frac{x}{7} \right)^k \right)  \\
+		&= x^2 \frac{d^2}{dx^2} \left( \frac{\frac{x^2}{49}}{1 - \frac{x}{7}} \right)  \quad {\color{red}\text{geometric series, valid for }\biggr| \frac{x}{7} \biggr| < 1}\\
+		&= x^2 \frac{d^2}{dx^2} \left( \frac{x^2}{7(7-x)} \right)  \\
+		&= x^2 \ddx \left( \frac{2x(49-7x) - (-7)(x^2)}{49(7-x)^2} \right)  \\
+		&= x^2 \ddx \left( \frac{98x - 7x^2}{49(7-x)^2} \right)  \\
+		&= x^2 \left( \frac{(98 - 14x)(49)(7-x)^2 - (-98)(7-x)(98x-7x^2)}{49^2 (7-x)^4} \right)  \\
+		&= x^2 \left( \frac{(98 - 14x)(7-x) + 2(98x-7x^2)}{49 (7-x)^3} \right)  \\
+		&= x^2 \left( \frac{(14 - 2x)(7-x) + 2x(14-x)}{7 (7-x)^3} \right)  \\
+		&= x^2 \left( \frac{98 - 14x - 14x + 2x^2 + 28x - 2x^2}{7(7-x)^3} \right)  \\
+		&= \boxed{\frac{14x}{(7-x)^3}}
+		\end{align*}
+	when
+		\[
+		\biggr| \frac{x}{7} \biggr| < 1 \qquad \Longleftrightarrow \qquad |x| < 7.
+		\]
 	\end{freeResponse}
 
 \end{problem}
@@ -155,7 +191,58 @@ Use power series to determine a (series) solution to the initial value problem
 	\]
 	
 	\begin{freeResponse}
-	
+	Assume that $y(x)$ is a power series solution centered at $0$.  ie,
+		\[
+		y = \sum_{k=0}^\infty c_ k x^k 	\qquad	\text{where} \qquad  c_k = \frac{y^{(k)}(0)}{k!}.
+		\]
+	We are given that $y(0) = 1$ and $y'(0) = 0$.  
+	Using these, we can find $c_0$ and $c_1$:
+		\begin{align*}
+		&c_0 = \frac{y^{(0)}(0)}{0!} = \frac{1}{1} = 1  \\
+		&c_1 = \frac{y'(0)}{1!} = \frac{0}{1} = 0.
+		\end{align*}
+	To find $c_k$, we need to first find $y^{(k)}(0)$.  
+	Using the differential equation, we can directly find $y''(0)$.
+		\begin{align*}
+		y''(0) - 0 \cdot y'(0) + y(0) &= 0  \\
+		y''(0) - 0 + 1 &= 0  \\
+		y''(0) &= -1.
+		\end{align*}
+	So
+		\[
+		c_2 = \frac{y''(2)}{2!} = \frac{-1}{2}.
+		\]
+	To find $y^{(3)}(0)$, we need to differentiate the differential equation (using the product rule):
+		\begin{align*}
+		\ddx \left( y'' - xy' + y \right) &= \ddx (0)  \\
+		y^{(3)} - (y' + xy'') + y' &= 0  \\
+		y^{(3)} - xy'' &= 0  \\
+		y^{(3)}(0) - 0 \cdot y''(0) &= 0  \\
+		y^{(3)}(0) = 0.
+		\end{align*}
+	In exactly the same manner, we can compute
+		\begin{align*}
+		&y^{(4)}(0) = -1  \\
+		&y^{(5)}(0) = 0 \\
+		&y^{(6)}(0) = -3 \\
+		&y^{(7)}(0) = 0 \\
+		&y^{(8)}(0) = -5(3) \\
+		&y^{(9)}(0) = 0 \\
+		&y^{(10)}(0) = -7(5)(3) \\
+		&y^{(11)}(0) = 0 \\
+		&y^{(12)}(0) =  -9(7)(5)(3)
+		\end{align*}
+	In particular, notice that $y^{(k)}(0) = 0$ when $k$ is odd.  
+	So in finding $c_k$, we split into the cases when $k$ is odd and when $k$ is even.
+		\begin{align*}
+		&c_{2k+1} = 0  \\
+		&c_{2k} = \frac{- 3 \cdot 5 \cdot 7 \cdot \hdots \cdot (2k-3)}{(2k)!} = \frac{-1}{2^k k! (2k-1)}.
+		\end{align*}
+		
+	Thus, the power series solution to the original initial value problem is
+		\[
+		\boxed{\sum_{k=0}^\infty  \left( \frac{-1}{2^k k! (2k-1)} \right) x^{2k}}
+		\]
 	\end{freeResponse}
 
 \end{problem}
