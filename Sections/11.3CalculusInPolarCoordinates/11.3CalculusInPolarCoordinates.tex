@@ -44,7 +44,7 @@ True or False:  The slope of the tangent line to the curve $r = f(\theta)$ at th
 	\end{freeResponse}
 	
 \begin{instructorNotes}
-
+%No instructor notes for this handout.
 \end{instructorNotes}
 
 
@@ -62,7 +62,64 @@ True or False:  The slope of the tangent line to the curve $r = f(\theta)$ at th
 Find the equation of the tangent line to $r = 2 - \sin \theta$ at $\theta = \frac{\pi}{3}$.  
 Also, determine for what values of $\theta$ the tangent lines to the curve are vertical or horizontal.
 	\begin{freeResponse}
+	We use the formula from the warm-up to find $\frac{\d y}{\d x}$ when $f(\theta) = 2 - \sin \theta$:
+		\begin{align*}
+		\frac{\d y}{\d x}
+		&= \frac{f'(\theta) \sin \theta + f(\theta) \cos \theta}{f'(\theta) \cos \theta - f(\theta) \sin \theta } \\
+		&= \frac{(- \cos \theta)(\sin \theta) + (2 - \sin \theta)(\cos \theta)}{(-\cos \theta)(\cos \theta) - (2 - \sin \theta)(\sin \theta)}.
+		\end{align*}
+	So
+		\begin{align*}
+		\eval{\frac{\d y}{\d x}}_{\theta = \frac{\pi}{3}} 
+		&= \frac{(- \cos \frac{\pi}{3})(\sin \frac{\pi}{3}) + (2 - \sin \frac{\pi}{3})(\cos \frac{\pi}{3})}{(-\cos \frac{\pi}{3})(\cos \frac{\pi}{3}) - (2 - \sin \frac{\pi}{3})(\sin \frac{\pi}{3})}  \\
+		&= \frac{\left( - \frac{1}{2} \cdot \frac{\sqrt{3}}{2} \right) + \left( 2 - \frac{\sqrt{3}}{2} \right) \left( \frac{1}{2} \right)}{\left( - \frac{1}{2} \cdot \frac{1}{2} \right) - \left( 2 - \frac{\sqrt{3}}{2} \right) \left( \frac{\sqrt{3}}{2} \right)}  \\
+		&= \frac{- \sqrt{3} + 4 - \sqrt{3}}{-1 - 4 \sqrt{3} + 3}  \\
+		&= \frac{4 - 2 \sqrt{3}}{2 - 4 \sqrt{3}}  \\
+		&= \frac{2 - \sqrt{3}}{1 - 2 \sqrt{3}}.
+		\end{align*}
+	Also, when $\theta = \frac{\pi}{3}$, $r = 2 - \frac{\sqrt{3}}{2} = \frac{4 - \sqrt{3}}{2}$.  
+	Therefore
+		\begin{align*}
+		&x = r \cos \theta = \frac{4 - \sqrt{3}}{2} \cdot \frac{1}{2} = 1 - \frac{\sqrt{3}}{4}  \\
+		&y = r \sin \theta = \frac{4 - \sqrt{3}}{2} \cdot \frac{\sqrt{3}}{2} = \sqrt{3} - \frac{3}{4}.
+		\end{align*}
+	Thus, the equation of the tangent line when $\theta = \frac{\pi}{3}$ is
+		\[
+		\boxed{y - \left( \sqrt{3} - \frac{3}{4} \right) = \frac{2 - \sqrt{3}}{1 - 2 \sqrt{3}} \left( x - \left( 1 - \frac{\sqrt{3}}{4} \right) \right)}
+		\]
+		
+	To find all vertical and horizontal tangent lines, we need to find where the numerator and denominator of $\frac{\d y}{\d x}$ are equal to $0$.
 	
+	{\bf Numerator:}
+		\begin{align*}
+		(- \cos \theta)(\sin \theta) + (2 - \sin \theta)(\cos \theta) &= 0  \\
+		- \sin \theta \cos \theta + 2 \cos \theta - \sin \theta \cos \theta &= 0  \\
+		2 \cos \theta - 2 \sin \theta \cos \theta &= 0  \\
+		2 \cos \theta (1 - \sin \theta) &= 0  \\
+		\cos \theta = 0 \quad \text{or} \quad \sin \theta &= 1  \\
+		\theta = \frac{\pi}{2} + k \pi  \quad  \text{or}  \quad  \theta &= \frac{\pi}{2} + 2k\pi \quad \text{for } k \text{ an integer}  \\
+		\theta = \frac{\pi}{2} + k \pi  &\quad \text{for } k \text{ an integer}
+		\end{align*}
+		
+	{\bf Denominator:}
+		\begin{align*}
+		(-\cos \theta)(\cos \theta) - (2 - \sin \theta)(\sin \theta) &= 0  \\
+		- \cos^2 \theta - 2 \sin \theta + \sin^2 \theta &= 0  \\
+		-1 + \sin^2 \theta - 2 \sin \theta + \sin^2 \theta &= 0  \\
+		2 \sin^2 \theta - 2 \sin \theta - 1 &= 0  \\
+		\sin \theta &= \frac{2 \pm \sqrt{4 + 8}}{4}  	\quad  {\color{red}\text{throw away the ``+'' }}\\
+		\sin \theta &= \frac{1 - \sqrt{3}}{2}  \quad {\color{red}\text{since it is out of the range of sin}}\\
+		\theta &= \sin^{-1} \left( \frac{1-\sqrt{3}}{2} \right) + 2 k \pi 	\quad \text{for k an integer}
+		\end{align*}
+		
+	Then, since these two collections of angles are disjoint, the horizontal tangent lines occur when
+		\[
+		\boxed{\theta = \frac{\pi}{2} + k \pi}  \quad \text{for } k \text{ an integer}
+		\]
+	and the vertical tangent lines occur when
+		\[
+		\boxed{\theta = \sin^{-1} \left( \frac{1-\sqrt{3}}{2} \right) + 2 k \pi} 	\quad \text{for k an integer}
+		\]
 	\end{freeResponse}
 	
 \end{problem}
@@ -92,8 +149,66 @@ Graph each region and then set up an integral for the area of the region:
 	\begin{freeResponse}
 	\begin{enumerate}
 	\item  
+		%\begin{image}
+		%\includegraphics[trim= 170 420 250 180]{Figure11-3-2.pdf}
+		%\end{image}
+		
+	To find the area inside the smaller loop, we need to first find the values of $\theta$ for which $r = 0$.
+	So we compute
+		\begin{align*}
+		&3 - 6 \sin \theta = 0  \\
+		\Longrightarrow \qquad &\sin \theta = \frac{1}{2}  \\
+		\Longrightarrow \qquad &\theta = \frac{\pi}{6}, \frac{5 \pi}{6}.
+		\end{align*}
+	Hence, the area of the smaller loop is
+		\[
+		\frac{1}{2} \int_{\frac{\pi}{6}}^{\frac{5 \pi}{6}} (3 - 6 \sin \theta)^2 \d \theta.
+		\]
+		
+	To find the area of the outer loop, we just integrate over the other values of $\theta$:
+		\[
+		\frac{1}{2} \int_0^{\frac{\pi}{6}} (3 - 6 \sin \theta)^2 \d \theta
+		+ \frac{1}{2} \int_{\frac{5 \pi}{6}}^{2 \pi} (3 - 6 \sin \theta)^2 \d \theta.
+		\]
+		
+	Therefore, the area of the region inside the outer loop and outside the inner loop is
+		\[
+		\boxed{\frac{1}{2} \left[ \int_0^{\frac{\pi}{6}} (3 - 6 \sin \theta)^2 \d \theta - \int_{\frac{\pi}{6}}^{\frac{5 \pi}{6}} (3 - 6 \sin \theta)^2 \d \theta + \int_{\frac{5 \pi}{6}}^{2 \pi} (3 - 6 \sin \theta)^2 \d \theta \right]    }
+		\]
+		
+		
 	
-	\item  
+	\item  We first graph $r = 4 \cos \theta$.
+		%\begin{image}
+		%\includegraphics[trim= 170 420 250 180]{Figure11-3-3.pdf}
+		%\end{image}
+		
+	Now we graph $r = 1 - \cos \theta$
+		%\begin{image}
+		%\includegraphics[trim= 170 420 250 180]{Figure11-3-4.pdf}
+		%\end{image}
+		
+	Here are the two graphs in the same picture
+		%\begin{image}
+		%\includegraphics[trim= 170 420 250 180]{Figure11-3-5.pdf}
+		%\end{image}
+		
+	To find the points where the two curves intersect, we solve
+		\begin{align*}
+		4 \cos \theta &= 1 - \cos \theta  \\
+		5 \cos \theta &= 1  \\
+		\cos \theta &= \frac{1}{5}  \\
+		\theta &= \pm \cos^{-1} \left( \frac{1}{5} \right) := \theta_0.
+		\end{align*}
+	Using the symmetry of the graph we find the area of one leaf and then double it.  
+	Therefore, the area between the curves is
+		\[
+		\boxed{ 2 \left[ \frac{1}{2} \int_0^{\theta_0} (1 - \cos \theta)^2 \d \theta + \frac{1}{2} \int_{\theta_0}^{\frac{\pi}{2}} (4 \cos \theta)^2 \d \theta \right] }
+		\]
+	In the following picture, the left-hand integral is (1) and the right-hand integral is (2).
+		%\begin{image}
+		%\includegraphics[trim= 170 420 250 180]{Figure11-3-6.pdf}
+		%\end{image}
 	
 	\end{enumerate}
 	\end{freeResponse}
