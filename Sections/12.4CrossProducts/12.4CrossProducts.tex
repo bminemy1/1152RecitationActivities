@@ -93,19 +93,19 @@ Given three dimensional vectors $\vec{u}$, $\vec{v}$, and $\vec{w}$, use dot pro
 	
 	\begin{freeResponse}
 	\begin{enumerate}
-	\item  
+	\item  This is the definition of vector projections.
 		\[
 		\text{proj}_u w = \boxed{\left( \frac{\vec{u} \cdot \vec{w}}{\vec{u} \cdot \vec{u}} \right) \vec{u}}
 		\]
 	
-	\item  
+	\item  There are many such vectors, but one of them is
 		\[
 		\boxed{\vec{u} \times \vec{v}}
 		\]
 	
-	\item  
+	\item  Note that $|\vec{v}|^2 = \vec{v} \cdot \vec{v}$ so that $|\vec{v}|=\sqrt{\vec{v} \cdot \vec{v}}$. 
 		\[
-		\| \vec{v} \| \left( \frac{\vec{w}}{\| \vec{w} \|} \right) = \boxed{ \frac{\sqrt{\vec{v} \cdot \vec{v}}}{\sqrt{\vec{w} \cdot \vec{w}}} \vec{w}}
+		| \vec{v} | \left( \frac{\vec{w}}{| \vec{w} |} \right) = \boxed{ \frac{\sqrt{\vec{v} \cdot \vec{v}}}{\sqrt{\vec{w} \cdot \vec{w}}} \vec{w}}
 		\]
 	
 	\item  
@@ -146,28 +146,48 @@ Find a vector of length $7$ that is perpendicular to both $\langle 5,-1,8 \rangl
 		\end{align*}
 	A unit vector in the same direction as $\vec{w}$ is
 		\[
-		\frac{\vec{w}}{\| \vec{w} \|}
+		\frac{\vec{w}}{| \vec{w} |}
 		= \frac{1}{\sqrt{(-85)^2 + (-41)^2 + 48^2}} \vec{w} = \frac{1}{\sqrt{11210}} \vec{w}.
 		\]
 	Therefore, a vector with a magnitude of $7$ in the same direction as $\vec{w}$ is
 		\[
-		\vec{t} = \frac{7}{\| \vec{w} \|} \vec{w} = \boxed{\frac{7}{\sqrt{11210}} \langle -85,-41,48 \rangle}
+		\vec{t} = \frac{7}{| \vec{w} |} \vec{w} = \boxed{\frac{7}{\sqrt{11210}} \langle -85,-41,48 \rangle}
 		\]
 	\end{freeResponse}
 		
 \end{problem}
 
 \begin{instructorNotes}
-
+Using cross product to find perpendicular vectors. 
 \end{instructorNotes}
 
 
 
 
+%problem3
+\begin{problem}
+Find the area of the triangle in $\mathbb{R}^3$ with vertices at $P(2, -1, 0)$, $Q(1, 1, 4)$ and $R(2, -1, 6)$. 
+	\begin{freeResponse}
+	The area of the triangle is $\frac{1}{2} | \vec{PQ} \times \vec{PR}|$. 
+	\begin{align*}
+	\vec{PR} &= \langle 2, -1, 6 \rangle - \langle 2, -1, 0 \rangle = \langle 0, 0, 6 \rangle, \\
+	\vec{PQ} &= \langle 1, 1, 4, \rangle - \langle 2, -1, 0 \rangle = \langle -1, 2, 4 \rangle.
+	\end{align*}
+	So 
+	\begin{align*}
+	\vec{PQ} \times \vec{PR} &= (-\vec{i} +2\vec{j} +4\vec{k})\times 6\vec{k} = - (\vec{i}\times \vec{k}) +2 (\vec{j} \times \vec{k}) +24 (\vec{k}\times \vec{k}) \\ &= - (-\vec{j}) + 2 \vec{i} + 0 = \langle 2, 1, 0 \rangle.
+	\end{align*}
+	The area of the triangle is $\frac{1}{2} \sqrt{2^2+1^2+0^2} = \frac{\sqrt{5}}{2}$. 
+	\end{freeResponse}
+		
+\end{problem}
+
+\begin{instructorNotes}
+Students should know that we can find the areas of triangles and parallelograms in $\mathbb{R}^3$ by using the cross product.
+\end{instructorNotes}
 
 
-
-%problem 3
+%problem 4
 \begin{problem}
 A wrench that is $30$cm long lies along the positive $y$-axis and grips a bolt at the origin.  
 A force is applied in the direction $\langle 0,3,-4 \rangle$ at the end of the wrench.  
@@ -190,17 +210,17 @@ Find the magnitude of the force needed to supply $100$J of torque to the bolt.
 		\]
 	for some constant $c$.
 	Let $\vec{t}$ denote the torque vector.  
-	Then $\vec{t} = \vec{R} \times \vec{F}$ and so $\| \vec{t} \| = \| \vec{R} \times \vec{F} \|$.
+	Then $\vec{t} = \vec{R} \times \vec{F}$ and so $| \vec{t} | = | \vec{R} \times \vec{F} |$.
 	Thus,
 		\begin{align*}
-		100 &= \| \langle 0,0.3,0 \rangle \times \langle 0,3c,-4c \rangle \|  \\
+		100 &= | \langle 0,0.3,0 \rangle \times \langle 0,3c,-4c \rangle |  \\
 		&= 
 		\biggr| \begin{vmatrix}
 		\hat{\imath}	&	\hat{\jmath}	&	\hat{k}	\\
 		0		&	0.3		&	0		\\
 		0		&	3c		&	-4c		\\
 		\end{vmatrix}  \biggr|  \\
-		&= \| (-1.2c - 0) \hat{\imath} - (0-0) \hat{\jmath} + (0-0) \hat{k} \|  \\
+		&= | (-1.2c - 0) \hat{\imath} - (0-0) \hat{\jmath} + (0-0) \hat{k} |  \\
 		&= 1.2 c = \frac{6}{5} c.
 		\end{align*}
 	Therefore
@@ -209,7 +229,7 @@ Find the magnitude of the force needed to supply $100$J of torque to the bolt.
 		\]
 	So, the magnitude of the force is
 		\begin{align*}
-		\| \vec{F} \|
+		| \vec{F} |
 		&= \frac{250}{3} \sqrt{0^2 + 3^2 + (-4)^2}  \\
 		&= \frac{250}{3} \cdot 5 = \boxed{\frac{1250}{3} \, N}
 		\end{align*}
