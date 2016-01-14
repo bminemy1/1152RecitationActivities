@@ -1,0 +1,77 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{fullpage}
+ \usepackage{graphicx, amsmath, amsthm, wrapfig}
+\begin{document}
+
+\flushleft
+
+\Large
+\underline{Worksheet \#1: Review of Differentiation and Basic Integration Skills}
+
+\normalsize
+
+\vspace{3mm}
+
+The following worksheet is designed to help review and/or sharpen your ability to differentiate and integrate functions encountered in a typical Calculus 1 course.  These problems are all reasonable to expect to see on the quiz this coming Friday (and each Friday thereafter).
+
+\vspace{5mm}
+
+\textbf{I. Differentiation Practice}
+
+Differentiate the following functions.
+\begin{align*}
+a)  \, \, y &= (2x-7)^4  & b) \, \, y &=  e^{\frac{x}{4}} & c) \, \, y&= 7x^4-3\sqrt[5]{x} + \dfrac{2}{5x^2} \\
+d) \, \, y&= \ln(2x+\cos x) & e) \, \, y&=2xe^{-x} & f) \, \, y&= \dfrac{\tan{(3x)}}{\sqrt{4-x}} \\
+g) \, \, y&= \csc{\left(e^{4x}\right)} & h) \, \, y&= [\ln(4x^3-2x)]^3 & i) \, \, y&= e^{4 \sqrt{x}} \\
+j) \, \, y&=4e^{x \sin x} & k) \, \, y&= 6x^9-\dfrac{1}{8x^4}+\dfrac{2}{\sqrt[3]{2x-1}} & l) \, \, y &=\dfrac{2}{(3x^2-1)^2} \\
+\end{align*}
+
+\textbf{II. Integration Practice}
+
+Compute the following integrals.  If an integral cannot be algebraically reduced to one of the basic functions (powers of $x$, trig functions, exponentials, etc) that can be easily integrated, state so!  
+
+\begin{align*}
+a) & \int \left(3x^4-\sqrt[3]{x^2} + \dfrac{2}{\sqrt[7]{x}}\right)  \, dx  & b) & \int e^{x^2} \, dx & c) & \int^{\pi/6}_{0} 4 \sin(2x) \, dx  \\
+d) & \int e^{-\frac{x}{3}} \, dx  & e) & \int \ln x \, dx & f) & \int \dfrac{4x^3-3x}{2x^2} \, dx  \\
+g) & \int \left( \sec(4x) \tan(4x) + 3 \sec^2 \frac{x}{5} \right) \, dx  & h) & \int^4_1 (\sqrt{x}-1)^2 \, dx  & i) & \int_0^1 \sqrt{e^{3x}} \, dx  \\
+j) &\int \cot^2 (3x) \sec^2 (3x) \, dx & k) & \int \cos \sqrt{x} \, dx & l) & \int \dfrac{2}{(3x)^2} \\
+\end{align*}
+
+\textbf{III. Miscellaneous}
+
+The following questions help dispel common integration errors and allow for one to gain some insight as to why these incorrect methods fail.
+\begin{enumerate}
+\item
+Consider the function $f(x)=e^{2x}$.  We know that $\dfrac{d}{dx} \left( e^{2x} \right) = 2 e^{2x}$ by the Chain Rule, and this lets us easily conclude that $\int e^{2x} \, dx = \frac{1}{2} e^{2x}$.  This could of course be verified by u-substitution (if you know/remember this technique), but can also be understood the following way:
+
+The symbol $\int e^{2x} \, dx$ represents a function whose derivative is $e^{2x}$.  Since taking a derivative of $e^{2x}$ results in multiplying $e^{2x}$ by 2, when we antidifferentiate $e^{2x}$, we must multiply by $\frac{1}{2}$.  
+
+You must be careful with this type of thought!  Indeed, it works only when the argument of the function (in this case, the expression in the exponent) is LINEAR\footnote{``linear in x" means the argument is of the form $ax+b$} in x!
+
+\begin{itemize}
+\item[a)] Calculate $\dfrac{d}{dx} \left(e^{x^2} \right) $.
+\item[b)] Suppose a student tries to apply the above logic to compute $\int e^{x^2} \, dx$.  The student concludes that since $\dfrac{d}{dx} e^{x^2} \, dx = 2x e^{x^2} $, then: 
+\begin{equation}
+ \int e^{x^2} \, dx = \dfrac{1}{2x} e^{x^2} \label{bad1}
+\end{equation}
+
+Since you know that $\int e^{x^2} \, dx$ is a function whose derivative is $e^{x^2}$, prove this student wrong by differentiating his/her answer (i.e. the RHS of Eqn \ref{bad1}).  
+
+\item[c)] What insight does this reveal as to why this students' answer is wrong?  Why can we think of antidifferentiating $e^{2x}$ differently than antidifferentiating $e^{x^2}$?
+\end{itemize}
+
+\item
+Another student sees the following integral on an exam:  $$\int \dfrac{7x^6-3x^2}{4x^3} \, dx$$The student answers the question the following way:
+\begin{align}
+\int \dfrac{7x^6-3x^2}{4x^3} \, dx &=  \dfrac{\int \left(7x^6-3x^2\right) \, dx} {\int 4x^3 \, dx} \nonumber \\
+&= \dfrac{x^7-x^3}{x^4} + C \label{bad2}
+\end{align}
+
+\begin{itemize}
+\item[a)] By using Eqn. \ref{bad2} exactly as it is written above (i.e. WITHOUT simplifying it!), show that the derivative of the RHS of Eqn. \ref{bad2} is NOT equal to the expression in the original integrand.
+\item[b)] What insight does this yield?  Why can one not simply just integrate the numerator and denominator of a fraction separately?
+\item[c)] Compute the antiderivative of this function correctly.
+\end{itemize}
+\end{enumerate}
+
+\end{document} 

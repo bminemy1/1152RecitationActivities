@@ -1,4 +1,4 @@
-\documentclass[]{ximera}
+\documentclass[noinstructornotes]{ximera}
 %handout:  for handout version with no solutions or instructor notes
 %handout,instructornotes:  for instructor version with just problems and notes, no solutions
 %noinstructornotes:  shows only problem and solutions
@@ -26,7 +26,7 @@
 %add a ``.'' below when used in a specific directory.
 \input{../preamble.tex} %% we can turn off input when making a master document
 
-\title{Recitation \# 2 Regions Between Curves - Solutions}  
+\title{Recitation \# 2 Regions Between Curves}  
 
 \begin{document}
 \begin{abstract}		\end{abstract}
@@ -58,70 +58,68 @@
 
 %problem 1
 \begin{problem}
-Consider the region bounded by the curves $y=2x^2-7x+8$ and $y=x^2-4x+18$.
+Consider the region bounded by the curves $y=7x^2-12$ and $y=x^2-6x$.
 	\begin{enumerate}
 		\item  Draw a sketch of the graphs.
 		\begin{freeResponse}
+		Set the curves equal to each other to find the intersection points: \\
+			$7x^2-12=x^2-6x\\
+			6x^2+6x-12=0\\
+			6(x^2+x-2)=0\\
+			6(x-1)(x+2)=0\\
+			x=1 \, or \, x=-2		$
 			\begin{image}
-			\includegraphics[trim= 50 320 50 180,scale=0.6,angle=-89.99]{Figure6-2-2.pdf}
+			\includegraphics[scale=0.5]{Figure6-2-2new.jpg}
 			\end{image}
 		\end{freeResponse}
-		
+		\newpage
 		\item  Find the area between these curves.
 		\begin{freeResponse}
-		Let $y_1 = 2x^2-7x+8$ and $y_2=x^2-4x+18$.  
-		By the solution to part (a), we know both that $y_1 - y_2 = x^2 - 3x - 10$ and that these two curves intersect at $x=-2, 5$.  
-		By checking the point $x=0$ (or by looking at the graph from part (a)) we see that $y_2 \geq y_1$ on the interval $[-2,5]$.  
+		By the solution to part (a), we know that these two curves intersect at $x=-2, 1$.  
+		By checking the point $x=0$ (or by looking at the graph from part (a)) we see that $y=7x^2-12  \leq y=x^2-6x$ on the interval $[-2,1]$. Said another way, y=$7x^2-12$ is on top and $ y=x^2-6x$ is on bottom on the interval [-2,1], and we will use "top - bottom" to find the area between the curves.  
 		So the area between the curves is:
 			\begin{align*}
-			\int_{-2}^5 (y_2 - y_1) \d x &= \int_{-2}^5 (-x^2 + 3x + 10) \d x  \\
-			&= \eval{-\frac{1}{3} x^3 + \frac{3}{2} x^2 + 10x}_{-2}^5  \\
-			&= \left(- \frac{125}{3} + \frac{75}{2} + 50 \right) - \left( \frac{8}{3} + 6 - 20 \right)  \\
-			&= - \frac{133}{3} + \frac{75}{2} + 64  \\
-			&= \frac{-266 + 225 + 384}{6} = \frac{343}{6}
+			\int_{-2}^1 (x^2-6x) - (7x^2-12) \d x &= \int_{-2}^1 (-6x^2-6x+12) \d x  \\
+			&= \eval{-2 x^3 -3 x^2 + 12x}_{-2}^1  \\
+			&= \left(-2(1) -3(1) +12(1) \right) - \left(-2(-2)^3 -3(-2)^2 + 12(-2) \right)  \\
+			&= 7 - (-20)  = 27
 			\end{align*}
 		\end{freeResponse}
 		
-		\item  Find the area of the region bounded by the curves $x=2y^2-7y+8$ and $x=y^2-4y+18$.
+		\item  Find the area of the region bounded by the curves $x=7y^2-12$ and $x=y^2-6y$.
 		\begin{freeResponse}
-		This region is exactly the same as the {\color{red} red region} from part (a), except it is rotated clockwise by $90^{\circ}$.  
-		Since the area of a region does not change under rotation, we have that the area of the new region is still $\frac{343}{6}$.  
+		This region is exactly the same as the region from part (a), except it is rotated clockwise by $90^{\circ}$.  
+		Since the area of a region does not change under rotation, we have that the area of the new region is still 27.
 		\end{freeResponse}
 		
-		\item  Find the area of the region bounded by the curves
-			\begin{enumerate}
-				\item[(i)]  $y = 2x^2 - 7x$ and $y=x^2 - 4x + 10$.
+		\item  Find the area of the region bounded by the curves  $y = 7x^2$ and $y=x^2 - 6x + 12$.
 				\begin{freeResponse}
-				The region bounded by the curves $y = 2x^2 - 7x$ and $y=x^2 - 4x + 10$ is just the {\color{red} red region} in part (a) translated downward by 8 units.  
-				Since the area of a region does not change under translation, we have that the area of the new region is still $\frac{343}{6}$.  
+				The region bounded by the curves $y = 7x^2$ and $y=x^2 - 6x + 12$ is just the region in part (a) translated upward by 12 units.  
+				Since the area of a region does not change under translation, we have that the area of the new region is still 27.  
 				\end{freeResponse}
 				
-				\item[(ii)]  $y=2x^2-7x-30$ and $y=x^2-4x-20$.
-				\begin{freeResponse}
-				This is the same as (i), except now the {\color{red} red region} has been translated downward by 38 units.  
-				Therefore, the area of this region is still $\frac{343}{6}$.  
-				\end{freeResponse}
 				
-			\end{enumerate}
+
 		
-		\item  Find the area of the region bounded by the curves $y=2x^2-7x+8$, $y=x^2-4x+18$, $x=1$, and $x=6$.
+		\item  Find the area of the region bounded by the curves $y=7x^2-12$, $y=x^2-6x$, $x=0$, and $x=3$.
 		\begin{freeResponse}
-			\begin{image}
-			\includegraphics[trim= 120 250 130 180,scale=0.6,angle=-89.99]{Figure6-2-3.pdf}
-			\end{image}
-		We already know that the graphs of the two functions intersect at the point $x=5$.  
-		By checking the points $x=1$ and $x=6$ (or by looking at the graph above) we see that 
+		\vspace{1mm}
+			%\begin{image}
+			\includegraphics[scale=.5]{Figure6-2-3new.jpg}
+			%\end{image}
+		We already know that the graphs of the two functions intersect at the point $x=1$.  
+		By checking the points $x=0$ and $x=3$ (or by looking at the graph above) we see that 
 			\begin{align*}
-			y_2 \geq y_1 \quad \text{on} \quad [1,5]  \\
-			y_1 \geq y_2 \quad \text{on} \quad [5,6]
+			y=x^2-6x \geq y=7x^2-12 \quad \text{on} \quad [0,1]  \\
+			y=7x^2-12 \geq y=x^2-6x \quad \text{on} \quad [1,3]
 			\end{align*}
 		Thus, the area between the curves is
 			\begin{align*}
-			&\int_1^5 (y_2 - y_1) \d x + \int_5^6 (y_1 - y_2) \d x  \\
-			&= \int_1^5 (-x^2 + 3x + 10) \d x + \int_5^6 (x^2 - 3x - 10) \d x  \\
-			&= \eval{-\frac{1}{3} x^3 + \frac{3}{2} x^2 + 10x}_1^5 + \eval{\frac{1}{3} x^3 - \frac{3}{2} x^2 - 10x}_5^6  \\
-			&= \left[ \left(- \frac{125}{3} + \frac{75}{2} + 50 \right) - \left( - \frac{1}{3} + \frac{3}{2} + 10 \right) \right] + \left[ \left( 72 - 54 - 60 \right) - \left( \frac{125}{3} - \frac{75}{2} - 50 \right) \right]  \\
-			&= - \frac{249}{3} + \frac{147}{2} + 48  = -83 + 48 + \frac{147}{2} = \frac{-70 + 147}{2} = \frac{77}{2}  
+			&\int_0^1 (x^2-6x ) - (7x^2-1) \d x + \int_1^3 (7x^2-12) - (x^2-6x) \d x  \\
+			&= \int_0^1 (-6^2 - 6x + 12) \d x + \int_1^3 (6x^2 + 6x - 12) \d x  \\
+			&= \eval{-2 x^3 -3 x^2 + 12x}_0^1 + \eval{2 x^3 + 3 x^2 - 12x}_1^3  \\
+			&= \left[ \left(- 2 -3 + 12 \right) - 0 \right] + \left[ \left( 2 (27) +3 (9) - 12(3) \right) - \left(  2 +3 - 12 \right) \right]  \\
+			&=  7+ 54 + 27 -36 +7 = 59
 			\end{align*}
 		\end{freeResponse}
 		
@@ -138,42 +136,46 @@ Afterwards, discuss the variations (c) and (d) as a whole class.
 
 
 
-
+\newpage
 
 %problem 2
 \begin{problem}
-Set up a single integral that computes the area of the region bounded by the curves (and be sure to draw a sketch of the graphs).
-	\begin{enumerate}
-		\item  $x=y^2$ and $y=6-x$
-		\begin{freeResponse}
+Set up two different integrals that compute the area of the region bounded by the curves  $x=y^2$ and $y=6-x$ (and be sure to draw a sketch of the graphs).
+	
+				\begin{freeResponse} 
+				\textbf{ In terms of $y$:}\\
+				First we find the intersection points:\\
+				$y^2=6-y\\
+				y^2+y-6=0\\
+				(y+3)(y-2)=0\\
+				y=-3 \, or \, y=2$
 			\begin{image}
-			\includegraphics[trim= 30 270 50 180,scale=0.6,angle=-89.99]{Figure6-2-4.pdf}
+			\includegraphics[scale=0.5]{Figure6-2-4new.jpg}
 			\end{image}
 		Thus,
 		\[
 		\text{{\color{red} Area of region}} =  \int_{-3}^2 [(6-y) - y^2] \d y .
 		\]
-		\end{freeResponse}
 		
-		\item  $y=x^2 + 6$ and $y=3x+10$
-		\begin{freeResponse}
-			\begin{image}
-			\includegraphics[trim= 100 270 100 180,scale=0.6,angle=-89.99]{Figure6-2-5.pdf}
+		\textbf{In terms of $x$:}\\
+		We need to rewrite $x=y^2$ as the two functions $y=\sqrt{x}$ and $y=-\sqrt{x}$.  Then,
+		we need two integrals because the top function changes where $y=\sqrt{x}$ intersects $y=6-x$.
+		We also need to find our intersection points in terms of $x$.  Since we already know the $y$-values of the points, 
+		we can plug the y-values into either function to get the $x$-values:\\
+		$x=6-y\\
+		x(2)=6-2=4\\
+		x(-3)=6-(-3)=9$\\
+		\begin{image}
+			\includegraphics[scale=0.5]{Figure6-2-4new2.jpg}
 			\end{image}
-		To find the intersection points in the above picture, we solve
-			\begin{align*}
-			x^2 + 6 &= 3x + 10  \\
-			x^2 - 3x - 4 &= 0  \\
-			(x+1)(x-4) &= 0  \\
-			x &= -1, 4.
-			\end{align*}
-		So
+			Thus,
 		\[
-		\text{{\color{red} Area of region}} =  \int_{-1}^4 [(3x+100) - (x^2 + 6)] \d x .
+		\text{{\color{red} Area of region}} =  \int_0^4 (\sqrt{x} - (-\sqrt{x})) \d x + \int_4^9 ((6-x)-(-\sqrt{x})) \d x .
 		\]
+		
 		\end{freeResponse}
 		
-	\end{enumerate}
+
 
 \end{problem}
 
@@ -186,7 +188,7 @@ Discuss with the students factors to consider when deciding whether to integrate
 
 
 
-
+\newpage
 
 
 
