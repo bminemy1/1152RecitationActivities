@@ -1,4 +1,4 @@
-\documentclass[handout]{ximera}
+\documentclass[noinstructornotes]{ximera}
 %handout:  for handout version with no solutions or instructor notes
 %handout,instructornotes:  for instructor version with just problems and notes, no solutions
 %noinstructornotes:  shows only problem and solutions
@@ -25,6 +25,8 @@
 
 %add a ``.'' below when used in a specific directory.
 \input{../preamble.tex} %% we can turn off input when making a master document
+
+\usepackage{fullpage}
 
 \title{Recitation \# 6 - Physical Applications}  
 
@@ -154,7 +156,56 @@ You may need to remind students beforehand that Hooke's law says that the force 
 
 
 
+
+
+
 %problem 3
+\begin{problem}
+A truncated conical tank that is $8$ feet tall, $5$ feet across the top, and $3$ feet across the bottom is filled with water (water weighs $62.5$ pounds per cubic foot).  
+\begin{enumerate}
+		\item  Set up an integral that will compute the work needed to pump the water out of the top of the tank.  
+		\begin{freeResponse}
+			\begin{image}
+			\includegraphics[trim= 120 320 100 180, angle=-89.99, scale=0.6]{Figure6-7-1.pdf}
+			\end{image}
+		
+		Note that
+			\begin{align*}
+			\rho &= 62.5  \\
+			g &= \text{ gravitational constant}  \\
+			D(y) &= 8-y  \\
+			A(y) &= \pi r^2 = \pi x^2 = \pi \left( \frac{y+12}{8} \right)^2.
+			\end{align*}
+		
+		So
+			\begin{align*}
+			W &= \int_a^b \rho g A(y) D(y) \d y  \\
+			&= 62.5 g \pi \int_0^8 \left( \frac{y+12}{8} \right)^2 (8-y) \d y.
+			\end{align*}
+		\end{freeResponse}
+		
+		
+		
+		\item  Set up an integral that will compute the work needed to pump the water out of a pipe that sticks $2$ feet above the top of the tank.
+		\begin{freeResponse}
+		Since the pump is now $10 ft$ away from the point $(0,0)$ instead of $8 ft$, we just replace $D(y) = 8-y$ by $D(y) = 10-y$.  
+		So
+			\begin{align*}
+			W &= \int_a^b \rho g A(y) D(y) \d y  \\
+			&= 62.5 g \pi \int_0^8 \left( \frac{y+12}{8} \right)^2 (10-y) \d y.
+			\end{align*}
+		\end{freeResponse}
+		
+	\end{enumerate}
+
+\end{problem}
+
+\begin{instructorNotes}
+I imainge that it will be unlikely that you complete this exercise.
+\end{instructorNotes}
+
+
+%problem 4
 \begin{problem}
 A bucket with mass $100kg$ when filled with oil is lifted at a constant rate by a pulley from the bottom to the top of a $60$-meter hole.
 	\begin{enumerate}
@@ -233,55 +284,6 @@ Have students work on part (a). Then discuss part (a) as a class before having t
 \end{instructorNotes}
 
 
-
-
-
-
-
-%problem 4
-\begin{problem}
-A truncated conical tank that is $8$ feet tall, $5$ feet across the top, and $3$ feet across the bottom is filled with water (water weighs $62.5$ pounds per cubic foot).  
-\begin{enumerate}
-		\item  Set up an integral that will compute the work needed to pump the water out of the top of the tank.  
-		\begin{freeResponse}
-			\begin{image}
-			\includegraphics[trim= 120 320 100 180, angle=-89.99, scale=0.6]{Figure6-7-1.pdf}
-			\end{image}
-		
-		Note that
-			\begin{align*}
-			\rho &= 62.5  \\
-			g &= \text{ gravitational constant}  \\
-			D(y) &= 8-y  \\
-			A(y) &= \pi r^2 = \pi x^2 = \pi \left( \frac{y+12}{8} \right)^2.
-			\end{align*}
-		
-		So
-			\begin{align*}
-			W &= \int_a^b \rho g A(y) D(y) \d y  \\
-			&= 62.5 g \pi \int_0^8 \left( \frac{y+12}{8} \right)^2 (8-y) \d y.
-			\end{align*}
-		\end{freeResponse}
-		
-		
-		
-		\item  Set up an integral that will compute the work needed to pump the water out of a pipe that sticks $2$ feet above the top of the tank.
-		\begin{freeResponse}
-		Since the pump is now $10 ft$ away from the point $(0,0)$ instead of $8 ft$, we just replace $D(y) = 8-y$ by $D(y) = 10-y$.  
-		So
-			\begin{align*}
-			W &= \int_a^b \rho g A(y) D(y) \d y  \\
-			&= 62.5 g \pi \int_0^8 \left( \frac{y+12}{8} \right)^2 (10-y) \d y.
-			\end{align*}
-		\end{freeResponse}
-		
-	\end{enumerate}
-
-\end{problem}
-
-\begin{instructorNotes}
-I imainge that it will be unlikely that you complete this exercise.
-\end{instructorNotes}
 
 
 
