@@ -1,4 +1,4 @@
-\documentclass[noinstructornotes]{ximera}
+\documentclass[handout]{ximera}
 %handout:  for handout version with no solutions or instructor notes
 %handout,instructornotes:  for instructor version with just problems and notes, no solutions
 %noinstructornotes:  shows only problem and solutions
@@ -88,13 +88,13 @@ Evaluate the following integrals
 	
 	
 	
-	\item  $\int \tan^2 x \sec x \d x$ \qquad {\color{red} Hint:  $\int \sec x \d x = \ln | \sec x \tan x| + C$}
+	\item  $\int \tan^2 x \sec x \d x$ \qquad {\color{red} Hint:  $\int \sec x \d x = \ln | \sec x + \tan x| + C$}
 	\begin{freeResponse}
 		\begin{align}
 		\int \tan^2 x \sec x \d x
 		&= \int \left( \sec^2 x - 1 \right) \sec x \d x  \nonumber	\\
 		&= \int \sec^3 x \d x - \int \sec x \d x  		\nonumber	\\
-		&= \int \sec^3 x \d x - \ln | \sec x \tan x| 	\qquad	{\color{red}\text{from the hint}}	\label{equation 1}
+		&= \int \sec^3 x \d x - \ln | \sec x + \tan x| 	\qquad	{\color{red}\text{from the hint}}	\label{equation 1}
 		\end{align}
 	Now, in an attempt to evaluate $\int \sec^3 x \d x$, we use integration by parts with
 		{\color{red}
@@ -111,10 +111,10 @@ Evaluate the following integrals
 		\end{equation}
 	Combining equations \eqref{equation 1} and \eqref{equation 2} yields
 		\begin{align*}
-		\int \tan^2 x \sec x \d x &= \int \sec^3 x \d x - \ln | \sec x \tan x|   \\
-		\int \tan^2 x \sec x \d x &= \sec x \tan x - \int \tan^2 x \sec x \d x - \ln | \sec x \tan x |  \\
-		2 \int \tan^2 x \sec x \d x &= \sec x \tan x - \ln | \sec x \tan x | + C  \\
-		\int \tan^2 x \sec x \d x &= \frac{1}{2} \left( \sec x \tan x - \ln | \sec x \tan x | \right) + C.
+		\int \tan^2 x \sec x \d x &= \int \sec^3 x \d x - \ln | \sec x + \tan x|   \\
+		\int \tan^2 x \sec x \d x &= \sec x \tan x - \int \tan^2 x \sec x \d x - \ln | \sec x + \tan x |  \\
+		2 \int \tan^2 x \sec x \d x &= \sec x \tan x - \ln | \sec x + \tan x | + C  \\
+		\int \tan^2 x \sec x \d x &= \frac{1}{2} \left( \sec x \tan x - \ln | \sec x + \tan x | \right) + C.
 		\end{align*}
 	\end{freeResponse}
 	
