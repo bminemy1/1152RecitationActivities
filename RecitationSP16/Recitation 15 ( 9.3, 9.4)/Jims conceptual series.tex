@@ -1,0 +1,414 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\pagestyle{empty}
+\parindent  = 0pt
+
+\begin{document}
+
+\large
+\begin{center}
+\textbf{Conceptual Problems Involving Partial Sums}
+\end{center}
+
+\normalsize
+
+The following questions provide practice with concepts involving partial sums.  These are important and should be studied and understood in preparation for the second midterm. 
+\vskip.2in
+
+\textbf{I: True or False}
+
+\vspace{3mm}
+
+\textbf{Directions:} CIRCLE ALL of the statements that \emph{MUST} be TRUE.  No explanation is necessary.  Note that there may be several statements that are true for each question!  
+
+\vspace{5mm}
+
+\textbf{\underline{Problem 1}}:  Suppose $\displaystyle\{a_n\}_{n \geq 1}$ is a sequence and $\displaystyle \sum^{\infty}_{n= 1} a_n$ converges to $L>0$.  Let $s_n =\displaystyle  \sum^n_{k=1} a_k$.
+\vspace{3mm}
+
+\begin{tabular}{lll}
+A. $\displaystyle \lim_{n \rightarrow \infty} a_n = L$ \qquad  \qquad  & B. $\displaystyle \lim_{n \rightarrow \infty} a_n = 0$ \qquad  \qquad  & C. $\displaystyle \lim_{n \rightarrow \infty} s_n = 0$   \\ [5ex] 
+D. $\displaystyle \lim_{n \rightarrow \infty} s_n = L$ \qquad   \qquad  &E.  $\displaystyle \sum^{\infty}_{n=1} s_n$ MUST diverge. \qquad  \qquad  &F. $\displaystyle \sum^{\infty}_{n=1} (a_n+1) = L+1$ \\
+\end{tabular}
+
+\vspace{3mm}
+
+\hspace{.5mm} G. The divergence test tells us $\displaystyle \sum^{\infty}_{n= 1} a_n$ converges to $L$.
+
+%\newpage
+%
+%
+%\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+%\textbf{\underline{Solution}:} 
+%
+%\begin{itemize}
+%\item[A.] \underline{FALSE} - Since $\displaystyle\{a_n\}_{n \geq 1} = L$, $\displaystyle\{a_n\}_{n \geq 1}$ is a \emph{convergent} series, so $\displaystyle \lim_{n \rightarrow \infty} a_n = 0$.  Since $L>0$, there is no way that $\displaystyle \lim_{n \rightarrow \infty} a_n = L$.
+%
+%
+%
+%\item[B.] \underline{TRUE} - If $\displaystyle \lim_{n \rightarrow \infty} a_n \neq 0$, the divergence test \emph{immediately} implies $\displaystyle \sum^{\infty}_{n= 1} a_n$ diverges! 
+%
+%$\longrightarrow \hspace{2mm}  $\fbox{\emph{Anytime} a series $\displaystyle \sum^{\infty}_{n= 1} a_n$ converges, it MUST be true that $\displaystyle \lim_{n \rightarrow \infty} a_n = 0$}$  \hspace{2mm} \longleftarrow$
+%
+%\item[C.] \underline{FALSE}
+%\item[D.] \underline{TRUE} - Some essential facts are:
+%
+%\fbox{$\displaystyle \sum^{\infty}_{n= 1} a_n$ converges iff $\displaystyle \lim_{n \rightarrow \infty} s_n = \lim_{n \rightarrow \infty} \displaystyle  \sum^n_{k=1} a_k$ exists} 
+%
+%\fbox{When $\displaystyle \lim_{n\rightarrow \infty} s_n$ does exist, $\displaystyle \displaystyle \sum^{\infty}_{n= 1} a_n = \lim_{n \rightarrow \infty} s_n$.}  
+%
+%
+%\fbox{The series $\displaystyle \sum^{\infty}_{n= 1} a_n$ likewise diverges iff the $\displaystyle \lim_{n\rightarrow \infty} s_n$ does not exist.}
+%
+%Here, we are given $\displaystyle \sum^{\infty}_{n= 1} a_n$ converges to $L>0$, which tells us immediately that $\displaystyle \lim_{n\rightarrow \infty} s_n = L$.
+%
+%
+%\item[E.] \underline{TRUE} - Since $\displaystyle \lim_{n\rightarrow \infty} s_n = L \neq 0$, the divergence test tells us immediately that 
+%
+%$\displaystyle \sum^{\infty}_{n=1} s_n$ MUST diverge.
+%
+%\item[F.] \underline{FALSE} - Since $\displaystyle \sum^{\infty}_{n=1} a_n$ converges, $\displaystyle \lim_{n \rightarrow \infty} a_n = 0$.  Thus, $\displaystyle \lim_{n \rightarrow \infty} (a_n+1) = 1$, and the divergence test immediately tells us that  $\displaystyle \sum^{\infty}_{n=1} (a_n+1)$ MUST diverge!
+%\item[G.] \underline{FALSE} - The divergence test \emph{NEVER} can be used to conclude that a series converges! 
+%
+%\vspace{3mm}
+%
+%
+%\end{itemize}
+%\end{minipage}}
+%
+%\newpage
+
+
+%%%
+\textbf{\underline{Problem 2}}: Suppose that $\displaystyle\{a_n\}_{n \geq 1}$ is a \emph{decreasing} sequence.  Let $s_n =\displaystyle  \sum^n_{k=1} a_k$ and suppose $\displaystyle \lim_{n \rightarrow \infty} s_n$ does  not exist.
+\vspace{3mm}
+
+\begin{tabular}{lll}
+A. $\displaystyle \lim_{n \rightarrow \infty} a_n$ does not exist. \qquad  \qquad  & B. $\displaystyle  \sum^{\infty}_{k=1} a_k$ could converge. \qquad    & C.  $\displaystyle \sum^{\infty}_{n=1} s_n$ MUST diverge.   \\ [3ex] 
+D. $\{ s_n \}$ MUST be monotonic.  \qquad  & E. $\{ s_n \}$ MUST be bounded.   \qquad  &F. $\displaystyle \lim_{n \rightarrow \infty} s_n = -\infty$ \\
+\end{tabular}
+
+\vspace{1mm}
+
+\hspace{.5mm} G. The divergence test applied to $\displaystyle \sum^{\infty}_{k= 1} a_k$ would guarantee that $\displaystyle \sum^{\infty}_{k=1} a_k$ diverges.
+
+%\newpage
+%
+%
+%\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+%\textbf{\underline{Solution}:} 
+%
+%\begin{itemize}
+%\item[A.] \underline{FALSE} - A counterexample is $a_k = \dfrac{1}{k}$.  We know this is a decreasing sequence and that $\displaystyle \sum^{\infty}_{k=1} \dfrac{1}{k}$ diverges.  However, $\displaystyle \lim_{n \rightarrow \infty} a_n = 0$.
+%
+%\item[B.] \underline{FALSE} - The series $\displaystyle \sum^{\infty}_{k= 1} a_k$ diverges iff the $\displaystyle \lim_{n\rightarrow \infty} s_n$ does not exist.  
+%
+%\item[C.] \underline{TRUE} - Since $\displaystyle \lim_{n \rightarrow \infty} s_n \neq 0$, the divergence test \emph{immediately} implies $\displaystyle \sum^{\infty}_{n= 1} s_n$ diverges! 
+%
+%\item[D.] \underline{FALSE} - Although $\{a_n\}$ is monotonic, it does \emph{NOT} imply $\{s_n\}$ is monotonic!  This is because the terms in the sequence $\{a_k\}$ could change from positive to negative.  For example, let $a_k = 3-k, k \geq 1$.  Then, computing the $s_n$:
+%\begin{align*}
+%a_1 &= 2 &  s_1 &= a_1 = \underline{2} \\
+%a_2 &= 1 &  s_2 &= a_1+a_2 =\underline{3} \\
+%a_3 &= 0 &  s_3 &= a_1+a_2+a_3 =  \underline{3}\\
+%a_4 &= -1 &  s_4 &= a_1+a_2+a_3+a_4 = \underline{2}\\
+%a_5 &= -2 &  s_5 &= a_1+a_2+a_3+a_4 +a_5=  \underline{0}
+%\end{align*}
+%Hence, $s_n$ is \emph{NOT} monotonic!
+%
+%\item[E.] \underline{FALSE} - The harmonic series (i.e. the series described in the explanation of A.) provides a counterexample.
+%\item[F.]  \underline{FALSE} - The harmonic series provides a counterexample.
+%\item[G.] \underline{FALSE} - The harmonic series provides a counterexample.  
+%\end{itemize}
+%\end{minipage}}
+%
+%
+%\newpage
+
+%%%
+\textbf{\underline{Problem 3}}: Suppose that $\displaystyle\{a_n\}_{n \geq 1}$ and $a_n > 0$ for all $n \geq 1$.  Let $s_n =\displaystyle  \sum^n_{k=1} a_k$ and suppose $\displaystyle \lim_{n \rightarrow \infty} s_n = L$.
+\vspace{3mm}
+
+
+
+
+
+\begin{tabular}{lll}
+A. $ \displaystyle \sum^{\infty}_{k=1} a_k = L $ & B. $\displaystyle \lim_{n \rightarrow \infty} a_n = 0$  \qquad \qquad   & C. $\{ s_n \}$ MUST be monotonic. \qquad  \qquad  \\ [5ex] 
+D. $\{ s_n \}$ MUST be bounded. & E. $\displaystyle \sum^{\infty}_{n=1} (a_n-L) = 0$ \qquad \qquad &F.  $\displaystyle \sum^{\infty}_{n=1} s_n$ MUST diverge. \qquad  \qquad 
+\end{tabular}
+
+\vspace{1mm}
+
+\hspace{.5mm} G. The divergence test applied to $\displaystyle \sum^{\infty}_{k= 1} a_k$ would guarantee that $\displaystyle \sum^{\infty}_{k=1} a_k$ converges.
+%
+%\vspace{1 mm}
+%\hspace{.5 mm} H. The Ratio Test can be used to determine that $\displaystyle \lim_{n \rightarrow \infty} \dfrac{a_{n+1}}{a_n} < 1$.
+%
+%\vspace{2mm}
+%
+%
+%\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+%\textbf{\underline{Solution}:} 
+%
+%\begin{itemize}
+%\item[A.] \underline{TRUE} - $\displaystyle \sum^{\infty}_{n= 1} a_n$ converges iff $\displaystyle \lim_{n \rightarrow \infty} s_n = \lim_{n \rightarrow \infty} \displaystyle  \sum^n_{k=1} a_k$ exists, and in this case, we have  $\displaystyle \lim_{n \rightarrow \infty} s_n = \lim_{n \rightarrow \infty} \displaystyle  \sum^{\infty}_{k=1} a_k.$
+%
+%\item[B.] \underline{TRUE} - If $\displaystyle \lim_{n \rightarrow \infty} a_n \neq 0$, the divergence test \emph{immediately} implies $\displaystyle \sum^{\infty}_{n= 1} a_n$ diverges! 
+%
+%$\longrightarrow \hspace{2mm}  $\fbox{\emph{Anytime} a series $\displaystyle \sum^{\infty}_{n= 1} a_n$ converges, it MUST be true that $\displaystyle \lim_{n \rightarrow \infty} a_n = 0$}$  \hspace{2mm} \longleftarrow$
+%
+%\item[C.] \underline{TRUE} - Note that $s_n = s_{n-1} +a_n$. Since $a_n > 0$ for all $n \geq 1$, then $s_n > s_{n-1}$.
+%
+%
+%
+%\item[D.] \underline{TRUE} - Since $\{ s_n \}$ is increasing, if it were not bounded, it would not have a limit (since a bounded, monotonic sequence \emph{MUST} have a limit).
+%
+%\item[E.] \underline{FALSE} - Since it has been established that $\displaystyle \sum^{\infty}_{n= 1} a_n$ converges, $\displaystyle \lim_{n \rightarrow \infty} a_n = 0$, and thus: $\displaystyle \lim_{n \rightarrow \infty} (a_n - L) = -L.$
+%
+%Also, since $s_n$ has been established to be increasing, $L = \displaystyle \lim_{n \rightarrow \infty} s_n > s_1 =a_1 >0$.
+%
+%Hence, $\displaystyle \lim_{n \rightarrow \infty} (a_n - L) = -L \neq 0$, so $\displaystyle \sum^{\infty}_{n=1} (a_n-L)$ MUST diverge!
+%
+%\item[F.] \underline{TRUE} -  $\displaystyle \lim_{n \rightarrow \infty} s_n =L \neq 0$, and the divergence test \emph{immediately} implies $\displaystyle \sum^{\infty}_{n= 1} s_n$ diverges.  
+%
+%
+%\item[G.] \underline{FALSE} - The divergence test can NEVER be used to determine that a series converges!
+%
+%\item[H.] \underline{FALSE} - The ratio test may \emph{NOT} apply to the series in question!  There are convergent series for which $\displaystyle \lim_{n \rightarrow \infty} \dfrac{a_{n+1}}{a_n} = 1$!  
+%
+%For a specific example, consider $\displaystyle \sum _{k=1}^{\infty} \dfrac{1}{k^2+k}$.  This sum can be shown to be telescoping by using partial fractions to justify the result below:
+%$$\dfrac{1}{k^2+k}=\dfrac{1}{k(k+1)} = \dfrac{1}{k}-\dfrac{1}{k+1}$$
+%By noting that $s_n = 1 - \dfrac{1}{n+1}$, it is clear that this series converges to 1.  However, it can be shown using the Ratio Test that  $\displaystyle \lim_{n \rightarrow \infty} \dfrac{a_{n+1}}{a_n} = 1$!
+%
+%\vspace{1mm}
+%\end{itemize}
+%\end{minipage}}
+%
+%%%%%%%%%%%
+%
+%\newpage
+
+\textbf{II: Short Answer}
+\vspace{3mm}
+
+
+\textbf{Directions:} Provide a brief response to the following questions.
+ 
+ \vspace{5mm}
+ 
+\textbf{\underline{Problem 4}} (Exploring the Relationship Between $\displaystyle \sum_{k=1}^{\infty} a_k$ and $\displaystyle \sum_{k=1}^{\infty} s_k$) 
+
+\vspace{3mm}
+
+For a sequence $\{a_n\}_{n \geq 1}$ let $s_n = \sum^n_{k=1} a_k$ denote its sequence of partial sums.  
+
+\begin{itemize}
+\item[a)] Given that  $\sum^{\infty}_{k=1} a_k$ converges, what can be said about  $\sum^{\infty}_{k=1} s_k$?
+
+\item[b)] Given that  $\sum^{\infty}_{k=1} a_k$ diverges, what can be said about  $\sum^{\infty}_{k=1} s_k$?
+
+\item[c)] Given that  $\sum^{\infty}_{k=1} s_k$ converges, what can be said about  $\sum^{\infty}_{k=1} a_k$?
+
+\item[d)] Given that  $\sum^{\infty}_{k=1} s_k$ diverges, what can be said about  $\sum^{\infty}_{k=1} a_k$?
+
+\end{itemize}
+
+%\newpage
+%
+%\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+%
+%\vspace{2mm}
+%
+%\textbf{\underline{Solution}:} Thinking about $\displaystyle \sum_{k=1}^{\infty} s_k$ is very difficult conceptually, but we do have several important facts:
+%
+%\begin{itemize}
+%
+%\item \underline{Fact 1}: Anytime we are told about convergence or divergence of a series, we know something about the sequence of partial sums:
+%
+%\begin{itemize}
+%\item[i.] $\displaystyle \sum^{\infty}_{k= 1} a_k$ converges iff $\displaystyle \lim_{n \rightarrow \infty} s_n $ exists, and in this case:
+%$\displaystyle \sum^{\infty}_{k= 1} a_k = \lim_{n \rightarrow \infty} s_n  $.
+%
+%\item[ii.] $\displaystyle \sum^{\infty}_{k= 1} a_k$ diverges iff $\displaystyle \lim_{n \rightarrow \infty} s_n = \lim_{n \rightarrow \infty} \displaystyle  \sum^n_{k=1} a_k$ does not exist.
+%\end{itemize}
+%
+%\item \underline{Fact 2}: If $\sum^{\infty}_{k=1} b_k$ converges, then $\lim_{k \rightarrow \infty} b_k =0$.
+%\end{itemize}
+%
+%\begin{itemize}
+%\item[a)] Since $\sum^{\infty}_{k=1} a_k$ converges, say $\sum^{\infty}_{k=1} a_k=L$.  Then by Fact 1,  $\lim_{n \rightarrow \infty} s_n = L$.  
+%
+%\begin{itemize}
+%\item[i.] If $L \neq 0$, then $\lim_{n \rightarrow \infty} s_n = L \neq 0$, so $\sum^{\infty}_{k=1} s_k$  would diverge by the divergence test.
+%\item[ii.] If $L = 0$, then $\sum^{\infty}_{k=1} s_k$  could converge.
+%\end{itemize}
+%
+%\textbf{Further Thinking:} Here are examples of an instance where the series $\sum^{\infty}_{k=1} s_k$ converges and an instance in which it diverges.  
+%
+%\begin{itemize} 
+%\item[Ex 1:] An example where $\sum^{\infty}_{k=1} s_k$ converges occurs when $s_k = \dfrac{1}{k^2+k}$.  In this case, each $a_k$ can be found via the formula $a_k = s_k - s_{k-1}$.  
+%
+%\vspace{1mm}
+%
+%Note this formula is not saying much:
+%\begin{align*}
+%s_k &= a_1+ \dots + a_{k-1} +a_k   \\
+%s_{k-1} &= a_1+ \dots+a_{k-1}
+%\end{align*}
+%Subtracting gives   $s_k - s_{k-1}=a_k$ .  This may look intimidating, but conceptually, the formula $a_k = s_k - s_{k-1}$ is obvious! So:
+%$$a_k = s_k - s_{k-1} = \dfrac{1}{k^2+k}-\dfrac{1}{(k-1)^2+k-1}.$$
+%
+%\vspace{3mm}
+%\item[Ex 2:] An example where $\sum^{\infty}_{k=1} s_k$ diverges occurs when $s_k = \dfrac{1}{k}$.  In this case, $$a_k = s_k - s_{k-1} = \dfrac{1}{k}-\dfrac{1}{k-1} = -\dfrac{1}{k^2-k}.$$
+%
+%\end{itemize}
+%
+%\vspace{3mm}
+%
+%\end{itemize}
+%\vspace{3mm}
+%\end{minipage}}
+%
+%\newpage
+
+%\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+%
+%\vspace{2mm}
+%\begin{itemize}
+%\item[b)] Since $\sum^{\infty}_{k=1} a_k$ diverges, we know that $\lim_{n \rightarrow \infty} s_n$ does not exist by Fact 1.  Thus, $\lim_{n \rightarrow \infty} s_n \neq 0$, so \fbox{$\sum^{\infty}_{k=1} s_k$   diverges by the divergence test.}
+%\vspace{3mm}
+%
+%\item[c)] Since $\sum^{\infty}_{k=1} s_k$ converges, we know that $\displaystyle \lim_{n \rightarrow \infty} s_n = 0$ by the above.  But, note that since $\displaystyle \lim_{n \rightarrow \infty} s_n = 0$, this means precisely that $\displaystyle \sum^{\infty}_{k=1} a_k = \lim_{n \rightarrow \infty} s_n = 0$.  
+%
+%\vspace{3mm}
+%
+%\fbox{Hence, $\sum^{\infty}_{k=1} a_k$ converges to 0.}
+%
+%\vspace{3mm}
+%
+%\item[d)] Since $\sum^{\infty}_{k=1} s_k$ diverges, we know very little about $\lim_{n \rightarrow \infty} s_n$.  
+%\begin{itemize}
+%\item[i.] It is possible that the limit exists, in which case, say $\lim_{n \rightarrow \infty} s_n =L$. Then,  $\sum^{\infty}_{k=1} a_k = L$.  Note that any series $\sum^{\infty}_{k=1} a_k $ that converges to any value other than 0 will give rise to a sequence of partial sums for which $\sum^{\infty}_{k=1} s_k$ diverges (since in this case  $\lim_{n \rightarrow \infty} s_n =L \neq 0$, and thus $\sum^{\infty}_{k=1} s_k$  would diverge by the divergence test).  
+%
+%
+%\item[ii.] It is possible that $\lim_{n \rightarrow \infty} s_n$ does not exist, in which case  $\sum^{\infty}_{k=1} a_k $ diverges by Fact 1.
+%\end{itemize}
+%
+%\textbf{Further Thinking}: An easy example of a series that converges to L can be made from a previous example.  Choose $L$ and consider the series $\sum_{k=1}^{\infty} \dfrac{L}{k^2+k}$.  This was discussed in Problem 3, H. and can easily be shown to converge to $L$.
+%
+%\vspace{3mm}
+%
+%\end{itemize}
+%
+%\end{minipage}}
+%
+%\newpage
+\textbf{\underline{Problem 5}} 
+For a sequence $\{a_n\}_{n \geq 1}$ let $s_n = \sum^n_{k=1} a_k$ denote its sequence of partial sums.
+
+Now, suppose that $\{a_n\}_{n \geq 1}$ is a sequence such that $s_n = \dfrac{2n-1}{3n+1}$.  
+
+\begin{itemize}
+\item[a)] Find $a_1+a_2+a_3+a_4$.
+\item[b)] Find $a_5+a_6$.
+\item[c)] Determine whether $\displaystyle \lim_{n \rightarrow \infty} a_n$ exists.  If it does, find its value.
+\item[d)]  Determine whether $\displaystyle \lim_{n \rightarrow \infty} s_n$ exists.  If it does, find its value.
+\item[e)] Determine whether $\displaystyle \sum_{k=1}^{\infty} a_k$ converges or diverges.  If it converges, find the value to which it converges, or state that there is not enough information to determine this.
+\item[f)] Determine whether $\displaystyle \sum_{k=1}^{\infty} s_k$ converges or diverges.  If it converges, find the value to which it converges, or state that there is not enough information to determine this.
+
+\end{itemize}
+
+%\newpage
+%
+%\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+%
+%\vspace{2mm}
+%
+%\textbf{\underline{Solution}:} 
+%\begin{itemize}
+%\item[a)] Note by definition that $a_1+a_2+a_3+a_4 = s_4$.  Using the formula given for $s_n$ with $n=4$ gives:
+%$$a_1+a_2+a_3+a_4 = \dfrac{2(4)-1}{3(4)+1} = \boxed{\dfrac{7}{13}}$$
+%
+%\item[b)] Note that by definition:
+%\begin{align*}
+%s_6 &= a_1+a_2+a_3+a_4+a_5+a_6 \\
+%s_4 &=a_1+a_2+a_3+a_4
+%\end{align*}
+%so $a_5+a_6 = s_6-s_4$.  Using the formula for $s_n$, we have:
+%
+%$$s_6 =  \dfrac{2(6)-1}{3(6)+1} = \dfrac{11}{19} \, , \hspace{10 mm} s_4= \dfrac{2(4)-1}{3(4)+1} = \dfrac{7}{13}$$
+%
+%Thus, \boxed{a_5+a_6 = \dfrac{11}{19}-\dfrac{7}{13}} . 
+%
+%\item[c)] To determine this, we actually note that:
+%$$\lim_{n \rightarrow \infty}s_n = \lim_{n \rightarrow \infty} \dfrac{2n-1}{3n+1} = \dfrac{2}{3}.$$
+%
+%Since $\lim_{n \rightarrow \infty} s_n$ exists, $\sum_{k=1}^{\infty} a_k$ converges, and thus $\boxed{\lim_{n \rightarrow \infty} a_n = 0}$.
+%
+%\item[d)] From the above work,   $\boxed{\displaystyle \lim_{n \rightarrow \infty} s_n = \dfrac{2}{3}}$\, .
+%
+%\item[e)] In c), we showed that $\sum_{k=1}^{\infty} a_k$ converges.  Since $\displaystyle \sum_{k=1}^{\infty} a_k = \lim_{n \rightarrow \infty} s_n$ and we determined that $ \displaystyle \lim_{n \rightarrow \infty} s_n = \dfrac{2}{3}$, we have $\boxed{\displaystyle \sum_{k=1}^{\infty} a_k  \mbox{ converges to } \dfrac{2}{3}}$\, .
+%
+%\item[f)] We showed that $ \displaystyle \lim_{n \rightarrow \infty} s_n = \dfrac{2}{3}$, so $\boxed{\displaystyle \sum_{k=1}^{\infty} s_k  \mbox{ diverges by the Divergence Test}}$\, .
+%
+%\vspace{2mm}
+%
+%
+%\end{itemize}
+%
+%\end{minipage}}
+%
+%\newpage
+\textbf{\underline{Problem 6}} 
+For a sequence $\{a_n\}_{n \geq 1}$ let $s_n = \sum^n_{k=1} a_k$ denote its sequence of partial sums.
+
+Now, suppose that $\{a_n\}_{n \geq 1}$ is a sequence such that $s_n = \dfrac{4n^2+9}{1-2n}$.  
+
+\begin{itemize}
+\item[a)] Find $a_1+a_2+a_3$.
+\item[b)] Find $a_8+a_9+a_{10}$.
+\item[c)] Determine whether $\displaystyle \sum_{k=1}^{\infty} a_k$ converges or diverges.  If it converges, find the value to which it converges, or state that there is not enough information to determine this.
+\item[d)] Determine whether $\displaystyle \sum_{k=1}^{\infty} s_k$ converges or diverges.  If it converges, find the value to which it converges, or state that there is not enough information to determine this.
+
+\end{itemize}
+
+%\newpage
+%
+%\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+%
+%\vspace{2mm}
+%
+%\textbf{\underline{Solution}:} 
+%\begin{itemize}
+%\item[a)] Note by definition that $a_1+a_2+a_3 = s_3$.  Using the formula given for $s_n$ with $n=3$ gives:
+%$$a_1+a_2+a_3 = \dfrac{4(3)^2+9}{1-2(3)} = \boxed{-9}\, .$$
+%
+%\item[b)] Note that by definition:
+%\begin{align*}
+%s_{10} &= a_1+\dots+ a_7+a_8+a_9+a_{10} \\
+%s_7 &= a_1+\dots +a_7
+%\end{align*}
+%so $a_8+a_9 +a_{10} = s_{10}-s_{7}$.  Using the formula for $s_n$, we have:
+%
+%$$s_10 =  \dfrac{4(10)^2+9}{1-2(10)} = -\dfrac{409}{19} \, , \hspace{10 mm} s_7= \dfrac{4(7)^2+9}{1-2(7)} = - \dfrac{205}{13}$$
+%
+%Thus, \boxed{a_8+a_9+a_{10} = -\dfrac{409}{19}+\dfrac{205}{13}} . 
+%
+%\item[c)] To determine this, we note that:
+%$$\lim_{n \rightarrow \infty}s_n = \lim_{n \rightarrow \infty}  \dfrac{4n^2+9}{1-2n} = \infty.$$
+%
+%Since $\lim_{n \rightarrow \infty} s_n$ does not exist, $\boxed{\sum_{k=1}^{\infty} a_k  \mbox{ diverges by the Divergence Test}}$\, .
+%
+%\item[d)] We showed that $ \displaystyle \lim_{n \rightarrow \infty} s_n = \infty$, so $\boxed{\displaystyle \sum_{k=1}^{\infty} s_k  \mbox{ diverges by the Divergence Test}}$\, .
+%
+%\vspace{2mm}
+%
+%
+%\end{itemize}
+%
+%\end{minipage}}
+
+\end{document}
