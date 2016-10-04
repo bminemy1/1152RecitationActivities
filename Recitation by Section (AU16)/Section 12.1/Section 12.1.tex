@@ -1,0 +1,268 @@
+\documentclass[handout]{ximera}
+%handout:  for handout version with no solutions or instructor notes
+%handout,instructornotes:  for instructor version with just problems and notes, no solutions
+%noinstructornotes:  shows only problem and solutions
+
+%% handout
+%% space
+%% newpage
+%% numbers
+%% nooutcomes
+
+%I added the commands here so that I would't have to keep looking them up
+%\newcommand{\RR}{\mathbb R}
+%\renewcommand{\d}{\,d}
+%\newcommand{\dd}[2][]{\frac{d #1}{d #2}}
+%\renewcommand{\l}{\ell}
+%\newcommand{\ddx}{\frac{d}{dx}}
+%\everymath{\displaystyle}
+%\newcommand{\dfn}{\textbf}
+%\newcommand{\eval}[1]{\bigg[ #1 \bigg]}
+
+%\begin{image}
+%\includegraphics[trim= 170 420 250 180]{Figure1.pdf}
+%\end{image}
+
+%add a ``.'' below when used in a specific directory.
+\input{../preamble.tex} %% we can turn off input when making a master document
+
+\title{Section 12.1: Vectors in Two Dimensions}  
+
+\begin{document}
+\begin{abstract}		\end{abstract}
+\maketitle
+
+
+\section{Warm up:}
+
+%problem 1
+\begin{problem}
+Sketch the vectors $\mathbf{u}=\langle 1, -1 \rangle$ and $\mathbf{v}=\langle 2, 0 \rangle$. Now using your sketch of these vectors, sketch $\mathbf{u}-2\mathbf{v}$.
+	\begin{freeResponse}
+	To add vectors, we put the tail of the second vector on the head of the first. 
+		\includegraphics[scale=0.5]{Figure12-1-1}
+	\end{freeResponse}
+	
+\begin{instructorNotes}
+Reminds students that there are different equivalent vector notations. Also, students should understand vector addition geometrically.
+\end{instructorNotes}
+
+\end{problem}
+
+
+
+
+
+
+
+\section{Group work:}
+
+%problem2
+\begin{problem}
+Suppose that $\mathbf{u}=\langle5, -1\rangle$ and $\mathbf{v}=\langle 2, 3\rangle$. Find the following quantities:
+\begin{enumerate}
+\item $-\mathbf{v}$
+\item $3\mathbf{u}-4\mathbf{v}$
+\item $|\mathbf{u}|$
+%\item $|\mathbf{u}-2\mathbf{v}|$
+\end{enumerate}
+	\begin{freeResponse}
+	\begin{enumerate}
+	\item $-\mathbf{v}= \langle -2, -3 \rangle$
+	\item $3\mathbf{u}-4\mathbf{v} = \langle 15, -3 \rangle - \langle 8, 12 \rangle = \langle 7, -15 \rangle$.
+	\item $|\mathbf{u}|= \sqrt{5^2+(-1)^2} = \sqrt{26}.$
+	%\item $|\mathbf{u}-2\mathbf{v}|=|\langle 1, -7\rangle| = \sqrt{1^2+(-7)^2}=\sqrt{50}=5\sqrt{2}.$
+	\end{enumerate}
+	\end{freeResponse}
+		
+\end{problem}
+
+\begin{instructorNotes}
+Simple vector operations
+\end{instructorNotes}
+
+
+
+
+
+
+
+
+
+%problem3
+\begin{problem}
+Suppose that $\mathbf{u}=3 \mathbf{i} - 4 \mathbf{j}$ in a 2-dimensional vector space. Find the following:
+\begin{enumerate}
+\item A unit vector in the same direction of $\mathbf{u}$. 
+\item All unit vectors parallel to $\mathbf{u}$. (How does differ from part (a)?)
+\item Two vectors parallel to $\mathbf{u}$ with length 10.
+\item Two non-zero vectors perpendicular to $\mathbf{u}$.
+\end{enumerate}
+	\begin{freeResponse}
+	\begin{enumerate}
+	\item $|\mathbf{u}|= \sqrt{3^2+(-4)^2} = 5$. A unit vector in the same direction is $\frac{\mathbf{u}}{|\mathbf{u}|}= \langle \frac{3}{5}, \frac{-4}{5} \rangle.$
+	\item Parallel unit vectors are $\pm \frac{\mathbf{u}}{|\mathbf{u}|}$, which are $\langle \frac{3}{5}, \frac{-4}{5} \rangle$ and $\langle \frac{-3}{5}, \frac{4}{5} \rangle$. Note that parallel vectors include vectors in the opposite direction. 
+	\item Since $\mathbf{u}$ has length 5, two parallel vectors of length 10 are $\pm 2\mathbf{u}$, which are $\langle 6, -8 \rangle$ and $\langle -6, 8 \rangle$. 
+	\item In 2 dimensions, we can find a perpendicular vector using what we know about finding a perpedicular line.  In particular, we know that two lines are perpendicular if the slope of line 1 is equal to the negative reciprical of the slope of line 2.  That is, $m_1 = \frac{-1}{m_2}.$  To find the slope of our vector $\mathbf{u}$, we find the slope between the head of the vector at (3,-4) and the tail of the vector at (0,0).  The slope of $\mathbf{u}$ is $\frac{-4-0}{3-0} = \frac{-4}{3}$  Therefore, the slope of a perpendicular vector will be $\frac{3}{4}$.  One vector with this slope is $\boxed{\mathbf{u_1}=4 \mathbf{i} +3 \mathbf{j}}$ and another is $\boxed{\mathbf{u_2}=- 4 \mathbf{i} - 3 \mathbf{j}}$.  Note: In more that 2-dimensions, this technique won't work.
+	\end{enumerate}
+	\end{freeResponse}
+
+\end{problem}
+
+\begin{instructorNotes}
+This question gauges whether they know the difference between vectors in the same direction and parallel vectors.
+\end{instructorNotes}
+
+
+
+%%problem 
+%\begin{problem}
+%Assume that $\vec{u} = \frac{1}{2} \hat{\imath} + \frac{\sqrt{3}}{2} \hat{\jmath}$ and $\vec{v} = \frac{\sqrt{3}}{2} \hat{\imath} - \frac{1}{2} \hat{\jmath}$.
+%	\begin{enumerate}
+%	\item  Show that $\vec{u}$ and $\vec{v}$ are unit vectors.
+%	\item  Write $\hat{\imath}$ as $a_1 \vec{u} + b_1 \vec{v}$ for some real numbers $a_1$ and $b_1$.  
+%	\item  Write $\hat{\jmath}$ as $a_2 \vec{u} + b_2 \vec{v}$ for some real numbers $a_2$ and $b_2$. 
+%	\end{enumerate}
+%	
+%	\begin{freeResponse}
+%	\begin{enumerate}
+%	\item  First, to show that both vectors are unit vectors, we compute their magnitudes that they are equal to one.
+%		\begin{align*}
+%		&| \vec{u} | = \sqrt{ \left( \frac{1}{2} \right)^2 + \left( \frac{\sqrt{3}}{2} \right)^2} = \sqrt{ \frac{1}{4} + \frac{3}{4}} = 1  \\
+%		&| \vec{v}| = \sqrt{ \left( \frac{\sqrt{3}}{2} \right)^2 + \left( - \frac{1}{2} \right)^2} = \sqrt{\frac{3}{4}+\frac{1}{4}} = 1.
+%		\end{align*}
+%	
+%	
+%	
+%	\item  
+%		\begin{align}
+%		\hat{\imath} &= a_1 \vec{u} + b_1 \vec{v}  \nonumber \\
+%		&= a_1 \left( \frac{1}{2} \hat{\imath} + \frac{\sqrt{3}}{2} \hat{\jmath} \right) + b_1 \left( \frac{\sqrt{3}}{2} \hat{\imath} - \frac{1}{2} \hat{\jmath} \right)  \nonumber \\
+%		&= \left( \frac{1}{2} a_1 + \frac{\sqrt{3}}{2} b_1 \right) \hat{\imath} + \left( \frac{\sqrt{3}}{2} a_1 - \frac{1}{2} b_1 \right) \hat{\jmath}.  \label{equation 1}
+%		\end{align}
+%	Therefore, we must have that
+%		\[
+%		\frac{1}{2} a_1 + \frac{\sqrt{3}}{2} b_1 = 1 	\qquad	\text{and} 	\qquad	\frac{\sqrt{3}}{2} a_1 - \frac{1}{2} b_1 = 0.
+%		\]
+%	Solving the right-hand equation for $b_1$ we have that
+%		\[
+%		b_1 = \sqrt{3} a_1.
+%		\]
+%	Plugging this into the left-hand equation gives
+%		\begin{align*}
+%		&1 = \frac{1}{2} a_1 + \frac{\sqrt{3}}{2} \cdot \sqrt{3} a_1  \\
+%		\Longrightarrow \qquad &1 = \frac{1}{2} a_1 + \frac{3}{2} a_1 = 2 a_1  \\
+%		\Longrightarrow \qquad &a_1 = \frac{1}{2}.
+%		\end{align*}
+%	So $b_1 = \frac{\sqrt{3}}{2}$, and therefore
+%		\[
+%		\boxed{\hat{\imath} = \frac{1}{2} \vec{u} + \frac{\sqrt{3}}{2} \vec{v}}.
+%		\]
+%	
+%	
+%	
+%	\item  In the same manner as in equation \eqref{equation 1} we have that
+%		\[
+%		\hat{\jmath} = \left( \frac{1}{2} a_2 + \frac{\sqrt{3}}{2} b_2 \right) \hat{\imath} + \left( \frac{\sqrt{3}}{2} a_2 - \frac{1}{2} b_2 \right) \hat{\jmath}
+%		\]
+%	and so
+%		\[
+%		\frac{1}{2} a_2 + \frac{\sqrt{3}}{2} b_2 = 0 	\qquad	\text{and} 	\qquad	\frac{\sqrt{3}}{2} a_2 - \frac{1}{2} b_2 = 1.
+%		\]
+%	Now, solving the left-hand equation for $a_2$ gives
+%		\[
+%		a_2 = - \sqrt{3} b_2.
+%		\]
+%	Then plugging into the right-hand equation yields
+%		\begin{align*}
+%		&1 = \frac{\sqrt{3}}{2} \cdot (- \sqrt{3} b_2 ) - \frac{1}{2} b_2  \\
+%		\Longrightarrow \qquad &1 = - \frac{3}{2} b_2 - \frac{1}{2} b_2 = -2 b_2  \\
+%		\Longrightarrow \qquad &b_2 = - \frac{1}{2}.
+%		\end{align*}
+%	So $a_2 = \frac{\sqrt{3}}{2}$, and therefore
+%		\[
+%		\boxed{\hat{\jmath} = \frac{\sqrt{3}}{2} \vec{u} - \frac{1}{2} \vec{v}   }
+%		\]
+%	
+%	\end{enumerate}
+%	\end{freeResponse}
+%	
+%\end{problem}
+%
+%\begin{instructorNotes}
+%Students tend to have issues writing a vector as a linear combination of other vectors.
+%\end{instructorNotes}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+								
+				
+				
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

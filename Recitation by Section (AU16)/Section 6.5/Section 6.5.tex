@@ -1,0 +1,245 @@
+\documentclass[noinstructornotes]{ximera}
+%handout:  for handout version with no solutions or instructor notes
+%handout,instructornotes:  for instructor version with just problems and notes, no solutions
+%noinstructornotes:  shows only problem and solutions
+
+%% handout
+%% space
+%% newpage
+%% numbers
+%% nooutcomes
+
+%I added the commands here so that I would't have to keep looking them up
+%\newcommand{\RR}{\mathbb R}
+%\renewcommand{\d}{\,d}
+%\newcommand{\dd}[2][]{\frac{d #1}{d #2}}
+%\renewcommand{\l}{\ell}
+%\newcommand{\ddx}{\frac{d}{dx}}
+%\everymath{\displaystyle}
+%\newcommand{\dfn}{\textbf}
+%\newcommand{\eval}[1]{\bigg[ #1 \bigg]}
+
+%\begin{image}
+%\includegraphics[trim= 170 420 250 180]{Figure1.pdf}
+%\end{image}
+
+%add a ``.'' below when used in a specific directory.
+\input{../preamble.tex} %% we can turn off input when making a master document
+
+\title{Section 6.5:  Length of Curves}  
+
+\begin{document}
+\begin{abstract}		\end{abstract}
+\maketitle
+
+
+
+\begin{comment}
+\section{Warm up:}
+
+	\begin{freeResponse}
+	
+	\end{freeResponse}
+	
+\begin{instructorNotes}
+
+\end{instructorNotes}
+\end{comment}
+
+
+
+
+
+
+
+\section{Group work:}
+
+
+
+%problem 1
+\begin{problem}
+Find the length of the following curves (length is in feet):
+	\begin{enumerate}
+		\item  $y = \frac{4}{3} x^\frac{3}{2}$ from $\left( 0, 0 \right)$ to $\left( 1, \frac{4}{3} \right)$.  
+		\begin{freeResponse}
+			\begin{align*}
+			\text{{\color{red} Arc Length}} &= \int_0^1 \sqrt{1+y'(x)^2} \d x  \\
+			&= \int_0^1 \sqrt{1+ \left( 2x^{\frac{1}{2}}\right)^2} \d x  \\
+			&=  \int_0^1 \sqrt{1+ 4x} \d x  \\
+			& \\
+			u &= 1+4x\\
+			du &= 4dx \\
+			\frac{du}{4} &= dx \\
+			& \\
+			u(0) &= 1 + 4(0) =1\\
+			u(1) &= 1 +4(1) = 5\\
+			& \\
+			&= \frac{1}{4} \int_1^5 \sqrt{u} \d u  \\
+			&= \frac{1}{4} \eval{\frac{2}{3}x^{\frac{3}{2}}}_1^5  \\
+			&= \frac{1}{4} \left( \frac{2}{3}(5)^{\frac{3}{2}} \right) - \left( \frac{2}{3}(1)^{\frac{3}{2}} \right)  
+			=\frac{1}{4} \left( \frac{2}{3}(5)^{\frac{3}{2}}  -  \frac{2}{3} \right)
+			\end{align*}
+		\end{freeResponse}
+		
+		
+		
+		\item  $x = \frac{1}{9} e^{3y} + \frac{1}{4} e^{-3y}$ from $\left( \frac{13}{36}, 0 \right)$ to $\left( \frac{265}{288}, \ln 2 \right)$.  
+		\begin{freeResponse}
+			\begin{align*}
+			\text{{\color{red} Arc Length}} &= \int_0^{\ln 2} \sqrt{1+x'(y)^2} \d y  \\
+			&=\int_0^{\ln 2} \sqrt{1+ \left( \frac{1}{3}e^{3y} - \frac{3}{4}e^{-3y} \right)^2} \d y  \\
+			&=  \int_0^{\ln 2} \sqrt{1+ \left( \frac{1}{9}e^{6y} - \frac{1}{2} + \frac{9}{16}e^{-6y} \right)} \d y  \\
+			&= \int_0^{\ln 2} \sqrt{ \frac{1}{9}e^{6y} + \frac{1}{2} + \frac{9}{16}e^{-6y} } \d y  \\
+			&= \int_0^{\ln 2} \sqrt{ \left( \frac{1}{3}e^{3y} + \frac{3}{4}e^{-3y} \right)^2} \d y  \\
+			&= \int_0^{\ln 2} \left( \frac{1}{3}e^{3y} + \frac{3}{4}e^{-3y} \right) \d y  \\
+			&= \eval{ \frac{1}{9}e^{3y} - \frac{1}{4}e^{-3y}}_0^{\ln 2}  \\
+			&\overset{*}{=} \left( \frac{8}{9} - \frac{1}{32} \right) - \left( \frac{1}{9} - \frac{1}{4} \right)  \\
+			&= \frac{7}{9} + \frac{7}{32} = \frac{224 + 63}{288} = \frac{287}{288}.
+			\end{align*}
+		* Note that
+			\[
+			e^{3 \ln 2} = e^{\ln 2^3} = e^{\ln 8} = 8
+			\]
+	and
+			\[
+			e^{-3 \ln 2} = e^{\ln 2^{-3}} = 2^{-3} = \frac{1}{8}.
+			\]
+		\end{freeResponse}
+		
+	\end{enumerate}
+
+\end{problem}
+
+\begin{instructorNotes}
+Split (a) and (b) amont the groups.  
+Note that the focus here is on both the set-up \dfn{and} in solving the resulting integral.
+\end{instructorNotes}
+
+
+
+%problem 3
+\begin{problem}
+{\bf Set up} an integral (or a {\it sum of integrals}) to find the perimeter of the region bounded by the curves $y=2x^2-5x+13$ and $y=x^2+6x-11$.
+	\begin{freeResponse}
+	Let $f(x) = 2x^2-5x+13$ and $g(x) = x^2+6x-11$.
+	We first need to find the points where these two curves intersect.  
+	So we solve
+		\begin{align*}
+		f(x) &= g(x)  \\
+		2x^2-5x+13 &= x^2+6x-11  \\
+		x^2-11x+24 &= 0  \\
+		(x-3)(x-8) &= 0  \\
+		x &= 3,8.
+		\end{align*}
+	Then the perimeter is $L_1 + L_2$ where
+		\begin{align*}
+		L_1 &= \int_3^8 \sqrt{1+f'(x)^2} \d x = \int_3^8 \sqrt{1+(4x-5)^2} \d x  \\
+		L_2 &= \int_3^8 \sqrt{1+g'(x)^2} \d x = \int_3^8 \sqrt{1+(2x+6)^2} \d x.
+		\end{align*}	
+	\end{freeResponse}
+	
+\end{problem}
+
+\begin{instructorNotes}
+It may be helpful to remind students that perimeter makes sense for more general two-dimensional shapes.
+\end{instructorNotes}
+
+
+
+
+%problem 4
+\begin{problem}
+A steady wind blows a kite due west.  
+The kite's height above the ground from horizontal position $x=0$ ft. to $x=80$ ft. is given by
+	\[
+	y = 150 - \frac{1}{40}(x-50)^2.
+	\]
+Set up the integral to find the distance traveled by the kite.  
+	\begin{freeResponse}
+		\[
+		\text{{\color{red} distance the kite traveled}} = \int_0^{80} \sqrt{1+y'(x)^2} \d x
+		\]
+	where $y(x) = 150 - \frac{1}{40}(x-50)^2$.  
+	Then since $y' = - \frac{1}{20}(x-50)$, we have that
+		\[
+		\text{{\color{red} distance the kite traveled}} = \int_0^{80} \sqrt{1 + \frac{(x-50)^2}{400}} \d x.
+		\]
+	\end{freeResponse}
+		
+\end{problem}
+
+\begin{instructorNotes}
+After discussing the problem, you might ask what the difference is between the given problem and if, say we are given the height of a ball at any time $t$ and asked to find the distance that the ball traveled.  
+In this set-up, the height is not the \dfn{path} of the ball and thus the length of the curve does not represent the distance that the ball traveled.  
+\end{instructorNotes}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+								
+				
+				
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
