@@ -1,4 +1,4 @@
-\documentclass[noinstructornotes]{ximera}
+\documentclass[handout]{ximera}
 %handout:  for handout version with no solutions or instructor notes
 %handout,instructornotes:  for instructor version with just problems and notes, no solutions
 %noinstructornotes:  shows only problem and solutions
@@ -26,7 +26,7 @@
 %add a ``.'' below when used in a specific directory.
 \input{../preamble.tex} %% we can turn off input when making a master document
 
-\title{Section 9.5: The Divergence, Integral, Ratio and Root Tests - Solutions}  
+\title{Section 9.5: The Ratio, Root, Comparison, and Limit Comparison Tests}  
 
 \begin{document}
 \begin{abstract}		\end{abstract}
@@ -43,9 +43,49 @@
 
 
 
-\section{Warm-Up}
 
 
+%Comparison Test Problem
+
+For each of the following, answer {\bf True} or {\bf False}, and explain why.
+	\begin{enumerate}
+	
+	\item  If $a_n \geq 0$ and $\sum_{n=0}^\infty a_n$ converges, then $\sum_{n=0}^\infty a_n^2$ converges.
+	
+	\item  If $a_n, b_n \geq 0$ and both $\sum_{n=0}^\infty a_n$ and $\sum_{n=0}^\infty b_n$ converge, then $\sum_{n=0}^\infty a_n b_n$ converges. 
+	
+	\end{enumerate}
+	
+	\begin{freeResponse}
+		\begin{enumerate}
+		
+		\item  \dfn{True}
+		
+		Since $\sum_{n=0}^\infty a_n$ converges, $\lim_{n \to \infty} a_n = 0$.  
+		So, in particular, there exists an integer $N$ such that $a_k < 1$ for all $k \geq N$.  
+		Then for all $k \geq N$, $a_k^2 < a_k$, and therefore we have that
+			\[
+			\sum_{n=N}^\infty a_n^2 < \sum_{n=N}^\infty a_n.
+			\]
+		Thus,  by the Comparison Test, $\sum_{n=0}^\infty a_n^2$ is convergent.
+		
+		
+		
+		\item  \dfn{True}
+		
+		Just as in part (a) there exists an integer $N$ such that $a_k < 1$ for all $k \geq N$.  
+		Then
+			\[
+			\sum_{n=N}^\infty a_n b_n < \sum_{n=N}^\infty b_n
+			\]
+		and thus, by the Comparison Test, $\sum_{n=0}^\infty a_n b_n$ is convergent.
+		
+		\end{enumerate}
+	\end{freeResponse}
+	
+\begin{instructorNotes}
+Show that these series converge formally using the comparison test.
+\end{instructorNotes}
 
 
 %problem 1
@@ -103,114 +143,114 @@ For (b), use something like $\frac{2}{k^2}$.
 Be sure to determine for which $k$ the inequality will hold.
 \end{instructorNotes}
 
-%problem 2
-\begin{problem}
-For each of the following, answer {\bf True} or {\bf False}, and explain why.
-	\begin{enumerate}
-	
-	\item  If $\sum_{n=0}^\infty a_n$ converges, then $\sum_{n=0}^\infty (a_n + 0.001)$ converges.
-	
-	\item  Since $\int_1^\infty x \sin(\pi x) \d x$ diverges then, by the Integral Test, $\sum_{n=0}^\infty n \sin(\pi n)$ diverges.
-	
-	\item  Since $\int_1^\infty \frac{1}{x^2} \d x = 1$ then, by the Integral Test, $\sum_{k=1}^\infty \frac{1}{k^2} = 1$.  
-	
-	\end{enumerate}
-	
-	\begin{freeResponse}
-		\begin{enumerate}
-		
-		\item  {\bf False}
-		
-		Since $\sum_{n=0}^\infty a_n$ converges, we know that $\lim_{n \to \infty} a_n = 0$.  
-		But then 
-			\[
-			\lim_{n \to \infty} (a_n + 0.0001) = 0.0001 \neq 0
-			\]
-		and so $\sum_{n=0}^\infty (a_n + 0.001)$ diverges by the Divergence Test.
-		
-		
-		
-		\item  {\bf False}
-		
-		The Integral Test only holds for positive, decreasing functions.  
-		The function $f(x)= x \sin(\pi x)$ is not always positive, nor is it always decreasing.  
-		So the Integral Test does not apply here.
-		
-		This problem is simpler than that though.  
-		Since $\sin(\pi n) = 0$ for all integers $n$, we have that $\sum_{n=0}^\infty n \sin(\pi n) = 0$.
-		
-		
-		
-		\item  {\bf False}
-		
-		The Integral Test tells us that $\sum_{k=1}^\infty \frac{1}{k^2}$ converges, but it does {\bf not} give us the sum (this sum is actually $\frac{\pi^2}{6}$).  
-		
-		\end{enumerate}
-	\end{freeResponse}
-	
-\end{problem}
-
-\begin{instructorNotes}
-For part (b) we need $f(x)$ to be a decreasing function for the Integral Test to (necessarily) hold.
-All groups should do all of the parts.
-\end{instructorNotes}
-
-
-
-
-
-\section{Group work:}
-
-%problem 3
-\begin{problem}
-Assume $\sum_{k=0}^\infty a_k =L$ and $b_k = 8$ for all $k$. 
-	\begin{enumerate}
-	
-	\item  What is $\lim_{k \to \infty} (a_k + b_k)$?
-	
-	\item  What is $\lim_{k \to \infty} \sum_{n=0}^k (a_n + b_n)$?
-	
-	\item  What is $\lim_{k \to \infty} \sum_{n=0}^k (a_{n+1} - a_n)$?
-	
-	\end{enumerate}
-	
-	\begin{freeResponse}
-		\begin{enumerate}
-	
-		\item  Since $\sum_{k=0}^\infty a_k$ converges, we know that $\lim_{k \to \infty} a_k = 0$.  
-		Therefore,
-			\[
-			\lim_{k \to \infty} (a_k + b_k) = 0 + 8 = \boxed{8}.
-			\]
-	
-		\item  Since $\lim_{n \to \infty} (a_n + b_n) = 8$, the series $\sum_{n=0}^\infty (a_n + b_n)$ diverges by the Divergence Test.  
-		But $\lim_{k \to \infty}  \sum_{n=0}^k (a_n + b_n) = \sum_{n=0}^\infty (a_n + b_n)$.  
-		Thus
-			\[
-			\lim_{k \to \infty}  \sum_{n=0}^k (a_n + b_n) = \sum_{n=0}^\infty (a_n + b_n) = \boxed{\infty}.
-			\]
-	
-		\item  Let $S_k = \sum_{n=0}^k (a_{n+1} - a_n)$ (and recall that $\{ S_k \}$ is the {\it sequence of partial sums}).
-		Then
-			\begin{align*}
-			S_k &= \sum_{n=0}^k (a_{n+1} - a_n)  \\
-			&= (a_1 - a_0) + (a_2 - a_1) + (a_3 - a_2) + \hdots + (a_k - a_{k-1}) + (a_{k+1} - a_k)  \\
-			&= a_{k+1} - a_0.
-			\end{align*}
-		Thus,
-			\[
-			\lim_{k \to \infty} \sum_{n=0}^k (a_{n+1} - a_n) = \lim_{k \to \infty} S_k = \lim_{k \to \infty} a_{k+1} - a_0 = \boxed{-a_0}.
-			\]
-	
-		\end{enumerate}
-	\end{freeResponse}
-		
-\end{problem}
-
-\begin{instructorNotes}
-This question was adapted from midterm \#2 in Spring 2013.  
-Students had difficulty distinguishing between a question dealing with sequences vs. a question dealing with series.
-\end{instructorNotes}
+%%problem 2
+%\begin{problem}
+%For each of the following, answer {\bf True} or {\bf False}, and explain why.
+%	\begin{enumerate}
+%	
+%	\item  If $\sum_{n=0}^\infty a_n$ converges, then $\sum_{n=0}^\infty (a_n + 0.001)$ converges.
+%	
+%	\item  Since $\int_1^\infty x \sin(\pi x) \d x$ diverges then, by the Integral Test, $\sum_{n=0}^\infty n \sin(\pi n)$ diverges.
+%	
+%	\item  Since $\int_1^\infty \frac{1}{x^2} \d x = 1$ then, by the Integral Test, $\sum_{k=1}^\infty \frac{1}{k^2} = 1$.  
+%	
+%	\end{enumerate}
+%	
+%	\begin{freeResponse}
+%		\begin{enumerate}
+%		
+%		\item  {\bf False}
+%		
+%		Since $\sum_{n=0}^\infty a_n$ converges, we know that $\lim_{n \to \infty} a_n = 0$.  
+%		But then 
+%			\[
+%			\lim_{n \to \infty} (a_n + 0.0001) = 0.0001 \neq 0
+%			\]
+%		and so $\sum_{n=0}^\infty (a_n + 0.001)$ diverges by the Divergence Test.
+%		
+%		
+%		
+%		\item  {\bf False}
+%		
+%		The Integral Test only holds for positive, decreasing functions.  
+%		The function $f(x)= x \sin(\pi x)$ is not always positive, nor is it always decreasing.  
+%		So the Integral Test does not apply here.
+%		
+%		This problem is simpler than that though.  
+%		Since $\sin(\pi n) = 0$ for all integers $n$, we have that $\sum_{n=0}^\infty n \sin(\pi n) = 0$.
+%		
+%		
+%		
+%		\item  {\bf False}
+%		
+%		The Integral Test tells us that $\sum_{k=1}^\infty \frac{1}{k^2}$ converges, but it does {\bf not} give us the sum (this sum is actually $\frac{\pi^2}{6}$).  
+%		
+%		\end{enumerate}
+%	\end{freeResponse}
+%	
+%\end{problem}
+%
+%\begin{instructorNotes}
+%For part (b) we need $f(x)$ to be a decreasing function for the Integral Test to (necessarily) hold.
+%All groups should do all of the parts.
+%\end{instructorNotes}
+%
+%
+%
+%
+%
+%\section{Group work:}
+%
+%%problem 3
+%\begin{problem}
+%Assume $\sum_{k=0}^\infty a_k =L$ and $b_k = 8$ for all $k$. 
+%	\begin{enumerate}
+%	
+%	\item  What is $\lim_{k \to \infty} (a_k + b_k)$?
+%	
+%	\item  What is $\lim_{k \to \infty} \sum_{n=0}^k (a_n + b_n)$?
+%	
+%	\item  What is $\lim_{k \to \infty} \sum_{n=0}^k (a_{n+1} - a_n)$?
+%	
+%	\end{enumerate}
+%	
+%	\begin{freeResponse}
+%		\begin{enumerate}
+%	
+%		\item  Since $\sum_{k=0}^\infty a_k$ converges, we know that $\lim_{k \to \infty} a_k = 0$.  
+%		Therefore,
+%			\[
+%			\lim_{k \to \infty} (a_k + b_k) = 0 + 8 = \boxed{8}.
+%			\]
+%	
+%		\item  Since $\lim_{n \to \infty} (a_n + b_n) = 8$, the series $\sum_{n=0}^\infty (a_n + b_n)$ diverges by the Divergence Test.  
+%		But $\lim_{k \to \infty}  \sum_{n=0}^k (a_n + b_n) = \sum_{n=0}^\infty (a_n + b_n)$.  
+%		Thus
+%			\[
+%			\lim_{k \to \infty}  \sum_{n=0}^k (a_n + b_n) = \sum_{n=0}^\infty (a_n + b_n) = \boxed{\infty}.
+%			\]
+%	
+%		\item  Let $S_k = \sum_{n=0}^k (a_{n+1} - a_n)$ (and recall that $\{ S_k \}$ is the {\it sequence of partial sums}).
+%		Then
+%			\begin{align*}
+%			S_k &= \sum_{n=0}^k (a_{n+1} - a_n)  \\
+%			&= (a_1 - a_0) + (a_2 - a_1) + (a_3 - a_2) + \hdots + (a_k - a_{k-1}) + (a_{k+1} - a_k)  \\
+%			&= a_{k+1} - a_0.
+%			\end{align*}
+%		Thus,
+%			\[
+%			\lim_{k \to \infty} \sum_{n=0}^k (a_{n+1} - a_n) = \lim_{k \to \infty} S_k = \lim_{k \to \infty} a_{k+1} - a_0 = \boxed{-a_0}.
+%			\]
+%	
+%		\end{enumerate}
+%	\end{freeResponse}
+%		
+%\end{problem}
+%
+%\begin{instructorNotes}
+%This question was adapted from midterm \#2 in Spring 2013.  
+%Students had difficulty distinguishing between a question dealing with sequences vs. a question dealing with series.
+%\end{instructorNotes}
 
 
 
